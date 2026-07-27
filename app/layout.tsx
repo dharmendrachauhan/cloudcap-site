@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CloudCap Technologies",
+  title: "CloudCap Technologies | Microsoft 365 & Azure Consulting",
   description: "Microsoft 365, Azure, Security, Compliance, SharePoint and Cloud Consulting Services",
 };
 
