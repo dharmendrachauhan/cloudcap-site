@@ -2,27 +2,27 @@ export default function Home() {
   const services = [
     {
       name: "Microsoft 365 Administration",
-      detail: "Tenant governance, licensing, and day-to-day admin done right.",
+      detail: "Tenant governance, licensing optimization, and day-to-day admin done right.",
     },
     {
       name: "SharePoint & Teams",
-      detail: "Site architecture, permissions, and migrations that don't break links.",
+      detail: "Site architecture, permissions, and zero-downtime migrations.",
     },
     {
       name: "Exchange Online",
-      detail: "Mail flow, transport rules, and mailbox migrations.",
+      detail: "Mail flow hygiene, custom transport rules, and mailbox migrations.",
     },
     {
       name: "Azure Infrastructure",
-      detail: "VMs, networking, and identity built to actually be maintained.",
+      detail: "VMs, virtual networking, and identity built to actually be maintained.",
     },
     {
       name: "Microsoft Defender",
-      detail: "Threat protection tuned for real alert fatigue, not noise.",
+      detail: "Threat protection tuned for real alert fatigue, reducing false positives.",
     },
     {
       name: "Microsoft Purview",
-      detail: "DLP, retention, and eDiscovery mapped to your compliance needs.",
+      detail: "DLP, retention, and eDiscovery mapped directly to your compliance needs.",
     },
     {
       name: "Intune & Endpoint Security",
@@ -30,11 +30,11 @@ export default function Home() {
     },
     {
       name: "Cloud Migrations",
-      detail: "File servers to SharePoint, on-prem to Azure, done in phases.",
+      detail: "File servers to SharePoint, on-prem to Azure, executed in controlled phases.",
     },
     {
       name: "PowerShell Automation",
-      detail: "Scripts that replace the manual work you're doing today.",
+      detail: "Custom scripts and runbooks to eliminate repetitive manual overhead.",
     },
   ];
 
@@ -126,8 +126,8 @@ export default function Home() {
 
             <p className="mb-8 max-w-xl text-lg leading-8 text-slate-400">
               CloudCap Technologies plans, migrates, secures, and maintains
-              Microsoft 365 and Azure environments — administered by one
-              person who reads the logs, not a ticket queue.
+              Microsoft 365 and Azure environments — delivered with direct senior engineer
+              access, not ticket queues.
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -206,46 +206,45 @@ export default function Home() {
           <div>
             <p className="mb-3 font-mono text-sm text-indigo-400">$ about</p>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              Founded by Dharmendra Chauhan.
+              Specialized Microsoft Cloud Practice.
             </h2>
             <p className="mb-5 leading-8 text-slate-400">
-              CloudCap Technologies is led by Dharmendra Chauhan, a Microsoft
-              Cloud and Cybersecurity Consultant who helps organizations
-              improve productivity, security, compliance, and cloud adoption.
+              CloudCap Technologies provides focused Microsoft Cloud and Cybersecurity
+              consulting to help organizations modernize operations, harden security postures,
+              and streamline compliance.
             </p>
             <p className="leading-8 text-slate-400">
-              The work covers Microsoft 365, Azure, SharePoint Online,
-              Exchange Online, Microsoft Defender, Microsoft Purview, Intune,
-              Entra ID, PowerShell automation, and cloud migration projects —
-              handled end to end, not handed off.
+              The work covers Microsoft 365, Azure, SharePoint Online, Exchange Online,
+              Microsoft Defender, Microsoft Purview, Intune, Entra ID, and PowerShell automation —
+              handled with end-to-end technical accountability.
             </p>
           </div>
 
           <div className="rounded-xl border border-slate-800 bg-slate-900 p-8">
-            <p className="mb-1 font-mono text-xs text-indigo-400">founder</p>
+            <p className="mb-1 font-mono text-xs text-indigo-400">overview</p>
             <h3 className="mb-1 text-2xl font-bold text-white">
-              Dharmendra Chauhan
+              Core Capabilities
             </h3>
             <p className="mb-6 text-slate-400">
-              Microsoft Cloud &amp; Cybersecurity Consultant
+              Microsoft Cloud &amp; Cybersecurity Consultancy
             </p>
 
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex gap-3">
                 <span className="text-emerald-400">✓</span>
-                Microsoft 365 administration and consulting
+                Microsoft 365 administration and tenant governance
               </li>
               <li className="flex gap-3">
                 <span className="text-emerald-400">✓</span>
-                Azure infrastructure and security
+                Azure infrastructure, identity, and security hardening
               </li>
               <li className="flex gap-3">
                 <span className="text-emerald-400">✓</span>
-                SharePoint, Teams, and collaboration platforms
+                SharePoint, Teams, and collaboration architecture
               </li>
               <li className="flex gap-3">
                 <span className="text-emerald-400">✓</span>
-                Defender, Purview, Intune, and Entra ID
+                Defender, Purview, Intune, and Entra ID deployment
               </li>
               <li className="flex gap-3">
                 <span className="text-emerald-400">✓</span>
