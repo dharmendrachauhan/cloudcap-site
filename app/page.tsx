@@ -72,41 +72,41 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="#home" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center gap-1 rounded-lg border border-slate-700 bg-slate-900">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </span>
+            <img
+              src="/logo.png"
+              alt="CloudCap Technologies"
+              className="h-11 w-11 rounded-lg border border-slate-700 bg-slate-900 object-contain p-1.5"
+            />
             <span>
               <p className="text-lg font-bold leading-tight text-white">
                 CloudCap Technologies
               </p>
-              <p className="font-mono text-xs text-blue-400">
+              <p className="font-mono text-xs text-indigo-400">
                 microsoft cloud &amp; security
               </p>
             </span>
           </a>
 
           <nav className="hidden gap-8 font-mono text-sm text-slate-400 md:flex">
-            <a href="#services" className="hover:text-blue-400">
+            <a href="#services" className="hover:text-indigo-400">
               services
             </a>
-            <a href="#about" className="hover:text-blue-400">
+            <a href="#about" className="hover:text-indigo-400">
               about
             </a>
-            <a href="#expertise" className="hover:text-blue-400">
+            <a href="#expertise" className="hover:text-indigo-400">
               expertise
             </a>
-            <a href="#contact" className="hover:text-blue-400">
+            <a href="#contact" className="hover:text-indigo-400">
               contact
             </a>
           </nav>
 
           <a
-            href="mailto:dc@m365pro.io"
-            className="hidden rounded-md border border-blue-500 px-4 py-2 font-mono text-sm text-blue-400 hover:bg-blue-500 hover:text-slate-950 md:inline-flex"
+            href="mailto:support@m365pro.io"
+            className="hidden rounded-md border border-indigo-500 px-4 py-2 font-mono text-sm text-indigo-400 hover:bg-indigo-500 hover:text-slate-950 md:inline-flex"
           >
-            dc@m365pro.io
+            support@m365pro.io
           </a>
         </div>
       </header>
@@ -115,7 +115,7 @@ export default function Home() {
       <section id="home" className="border-b border-slate-800">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:items-center md:py-32">
           <div>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-slate-800 bg-slate-900 px-3 py-1.5 font-mono text-xs text-blue-400">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-slate-800 bg-slate-900 px-3 py-1.5 font-mono text-xs text-indigo-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
               tenant status: operational
             </p>
@@ -132,14 +132,14 @@ export default function Home() {
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
-                href="mailto:dc@m365pro.io"
-                className="inline-flex justify-center rounded-md bg-blue-500 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-400"
+                href="mailto:support@m365pro.io"
+                className="inline-flex justify-center rounded-md bg-indigo-500 px-6 py-3 font-semibold text-slate-950 hover:bg-indigo-400"
               >
                 Get in touch
               </a>
               <a
                 href="#services"
-                className="inline-flex justify-center rounded-md border border-slate-700 px-6 py-3 font-semibold text-slate-200 hover:border-blue-500 hover:text-blue-400"
+                className="inline-flex justify-center rounded-md border border-slate-700 px-6 py-3 font-semibold text-slate-200 hover:border-indigo-500 hover:text-indigo-400"
               >
                 See services
               </a>
@@ -179,7 +179,7 @@ export default function Home() {
       {/* Services */}
       <section id="services" className="border-b border-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="mb-3 font-mono text-sm text-blue-400">$ services</p>
+          <p className="mb-3 font-mono text-sm text-indigo-400">$ services</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold text-white md:text-4xl">
             Consulting and hands-on execution across the Microsoft stack.
           </h2>
@@ -188,7 +188,7 @@ export default function Home() {
             {services.map((service) => (
               <div
                 key={service.name}
-                className="rounded-lg border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500"
+                className="rounded-lg border border-slate-800 bg-slate-900 p-6 transition hover:border-indigo-500"
               >
                 <h3 className="mb-2 text-lg font-bold text-white">
                   {service.name}
@@ -204,7 +204,7 @@ export default function Home() {
       <section id="about" className="border-b border-slate-800 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:items-center">
           <div>
-            <p className="mb-3 font-mono text-sm text-blue-400">$ about</p>
+            <p className="mb-3 font-mono text-sm text-indigo-400">$ about</p>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
               Founded by Dharmendra Chauhan.
             </h2>
@@ -222,7 +222,7 @@ export default function Home() {
           </div>
 
           <div className="rounded-xl border border-slate-800 bg-slate-900 p-8">
-            <p className="mb-1 font-mono text-xs text-blue-400">founder</p>
+            <p className="mb-1 font-mono text-xs text-indigo-400">founder</p>
             <h3 className="mb-1 text-2xl font-bold text-white">
               Dharmendra Chauhan
             </h3>
@@ -259,7 +259,7 @@ export default function Home() {
       {/* Expertise */}
       <section id="expertise" className="border-b border-slate-800 py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="mb-3 font-mono text-sm text-blue-400">$ expertise</p>
+          <p className="mb-3 font-mono text-sm text-indigo-400">$ expertise</p>
           <h2 className="mb-10 text-3xl font-bold text-white md:text-4xl">
             Platforms and technologies supported.
           </h2>
@@ -280,7 +280,7 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-3 font-mono text-sm text-blue-400">$ contact</p>
+          <p className="mb-3 font-mono text-sm text-indigo-400">$ contact</p>
           <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
             Ready to fix, migrate, or harden your environment?
           </h2>
@@ -289,10 +289,10 @@ export default function Home() {
             Intune, or migration consulting.
           </p>
           <a
-            href="mailto:dc@m365pro.io"
-            className="inline-flex rounded-md bg-blue-500 px-8 py-3.5 font-semibold text-slate-950 hover:bg-blue-400"
+            href="mailto:support@m365pro.io"
+            className="inline-flex rounded-md bg-indigo-500 px-8 py-3.5 font-semibold text-slate-950 hover:bg-indigo-400"
           >
-            dc@m365pro.io
+            support@m365pro.io
           </a>
         </div>
       </section>
