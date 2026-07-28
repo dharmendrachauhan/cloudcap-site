@@ -598,6 +598,14 @@ export default function Home() {
         </section>
 
         <footer className="border-t border-slate-800 px-6 py-8 text-center font-mono text-xs text-slate-600">
+          <div className="mb-2 flex justify-center gap-6">
+            <a href="/terms" className="hover:text-violet-400">
+              terms
+            </a>
+            <a href="/privacy" className="hover:text-violet-400">
+              privacy
+            </a>
+          </div>
           © 2026 CloudCap Technologies. All rights reserved.
         </footer>
       </div>
