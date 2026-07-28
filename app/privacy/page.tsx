@@ -34,15 +34,13 @@ export default function Privacy() {
         <div className="space-y-10 text-slate-400">
           <section>
             <p className="leading-7">
-              CloudCap Technologies ("CloudCap," "we," "us," or "our"),
-              operated by Dharmendra Chauhan, is committed to protecting your
-              privacy. This Privacy Policy explains how we collect, use,
-              disclose, and safeguard information when you visit this website
-              or engage our services, in accordance with the Information
-              Technology Act, 2000, the Information Technology (Reasonable
-              Security Practices and Procedures and Sensitive Personal Data
-              or Information) Rules, 2011, and the Digital Personal Data
-              Protection Act, 2023 ("DPDP Act").
+              This Privacy Policy explains how CloudCap Technologies
+              ("CloudCap," "we," "us," or "our"), operated by Dharmendra
+              Chauhan, handles information in connection with this website
+              (the "Site"). This Site is informational only — it does not
+              have any forms, logins, e-commerce, or payment processing, and
+              does not knowingly collect personal information beyond what is
+              described below.
             </p>
           </section>
 
@@ -53,166 +51,99 @@ export default function Privacy() {
             <ul className="list-disc space-y-2 pl-5 leading-7">
               <li>
                 <span className="text-slate-300">
-                  Information you provide directly:
+                  Information you send us directly:
                 </span>{" "}
-                name, email address, phone number, company name, and any
-                details you share with us via email or contact forms.
+                if you email us (for example, at support@m365pro.io), we
+                receive whatever information you choose to include, such as
+                your name, email address, and the contents of your message.
               </li>
               <li>
                 <span className="text-slate-300">
-                  Automatically collected information:
+                  Standard hosting logs:
                 </span>{" "}
-                IP address, browser type, device information, pages visited,
-                and cookies or similar tracking technologies.
-              </li>
-              <li>
-                <span className="text-slate-300">
-                  Information collected during service delivery:
-                </span>{" "}
-                where we are engaged to manage or assess a client's IT
-                environment, we may access configuration data, logs, and
-                tenant settings strictly as needed to perform the agreed
-                services.
+                like most websites, our hosting provider may automatically
+                record basic technical information such as IP address,
+                browser type, and pages visited, for security and
+                performance purposes. This Site does not use analytics,
+                advertising, or tracking cookies.
               </li>
             </ul>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              2. How We Use Your Information
+              2. How We Use Information
             </h2>
             <p className="leading-7">
-              We use the information we collect to provide and improve our
-              services, respond to inquiries, send service-related
-              communications, comply with legal obligations, and, where you
-              have given consent, share relevant updates about our services.
-              We do not use client tenant or system data accessed during an
-              engagement for any purpose beyond delivering the agreed
-              services.
+              Any information you send us by email is used only to respond to
+              your inquiry and, if an engagement follows, to discuss and
+              deliver services. Hosting logs are used only for the security
+              and operation of the Site.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              3. Consent
+              3. Data Sharing
             </h2>
             <p className="leading-7">
-              By submitting your information to us through this website or in
-              connection with our services, you consent to the collection
-              and use of that information as described in this Policy. Where
-              required under the DPDP Act, we will seek your specific,
-              informed consent before processing personal data, and you may
-              withdraw that consent at any time.
+              We do not sell, rent, or share your information with third
+              parties, except where required by law or a valid legal request
+              from a government or judicial authority.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              4. Data Sharing &amp; Disclosure
+              4. Data Retention
             </h2>
             <p className="leading-7">
-              We do not sell your personal information. We may share
-              information with trusted third-party service providers (such
-              as hosting, email, or infrastructure providers) strictly to the
-              extent necessary to operate this website or deliver our
-              services, or where required by law, regulation, or a valid
-              legal request from a government or judicial authority.
+              We retain emails and any information you send us only as long
+              as reasonably necessary to respond to your inquiry or maintain
+              a record of an ongoing engagement.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              5. Data Security
+              5. Cookies
             </h2>
             <p className="leading-7">
-              We implement reasonable technical and organizational security
-              measures to protect information against unauthorized access,
-              alteration, disclosure, or destruction. No method of
-              transmission or storage is completely secure, and we cannot
-              guarantee absolute security.
+              This Site does not use cookies for tracking or advertising. Any
+              cookies set by the hosting platform itself are strictly
+              functional and not used to identify or profile visitors.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              6. Data Retention
+              6. Children's Privacy
             </h2>
             <p className="leading-7">
-              We retain personal information only for as long as necessary to
-              fulfill the purposes described in this Policy, meet our
-              contractual and legal obligations, or as otherwise required by
-              applicable law, after which it is securely deleted or
-              anonymized.
+              This Site is not directed at individuals under the age of 18,
+              and we do not knowingly collect information from children.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              7. Your Rights
-            </h2>
-            <p className="mb-3 leading-7">
-              Subject to applicable law, including the DPDP Act, you have the
-              right to:
-            </p>
-            <ul className="list-disc space-y-2 pl-5 leading-7">
-              <li>Access the personal data we hold about you.</li>
-              <li>Request correction of inaccurate or incomplete data.</li>
-              <li>
-                Request erasure of your personal data, subject to legal or
-                contractual retention requirements.
-              </li>
-              <li>Withdraw consent you previously provided.</li>
-              <li>
-                Lodge a grievance with our Grievance Officer, as detailed
-                below.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              8. Cookies
+              7. Third-Party Links
             </h2>
             <p className="leading-7">
-              This website may use cookies and similar technologies to
-              improve functionality and understand site usage. You can
-              control or disable cookies through your browser settings; doing
-              so may affect certain features of the site.
+              This Site may link to third-party websites (such as Microsoft
+              or Maester). We are not responsible for the privacy practices
+              of those third-party sites.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              9. Children's Privacy
+              8. Your Rights &amp; Grievances
             </h2>
             <p className="leading-7">
-              This website and our services are not directed at individuals
-              under the age of 18, and we do not knowingly collect personal
-              data from children. If you believe a child has provided us with
-              personal data, please contact us so we can remove it.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              10. Third-Party Links
-            </h2>
-            <p className="leading-7">
-              This website may contain links to third-party websites or
-              platforms (such as Microsoft or Maester). We are not
-              responsible for the privacy practices or content of those
-              third-party sites.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              11. Grievance Officer
-            </h2>
-            <p className="leading-7">
-              In accordance with the Information Technology Act, 2000 and
-              rules made thereunder, the Grievance Officer for CloudCap
-              Technologies is:
+              If you have any concerns about how your information is
+              handled, or wish to request that information you've sent us be
+              corrected or deleted, you can contact our Grievance Officer:
             </p>
             <p className="mt-3 leading-7">
               <span className="text-slate-300">Dharmendra Chauhan</span>
@@ -233,22 +164,22 @@ export default function Privacy() {
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              12. Changes to This Policy
+              9. Changes to This Policy
             </h2>
             <p className="leading-7">
-              We may update this Privacy Policy from time to time. Any
-              changes will be posted on this page with an updated "Last
-              updated" date.
+              If this Site's data practices change — for example, if we later
+              add analytics, a contact form, or newsletter signup — this
+              Policy will be updated to reflect that before those features go
+              live.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              13. Contact Us
+              10. Contact Us
             </h2>
             <p className="leading-7">
-              For any questions about this Privacy Policy or to exercise your
-              rights, contact us at{" "}
+              For any questions about this Privacy Policy, contact us at{" "}
               <a
                 href="mailto:support@m365pro.io"
                 className="text-violet-400 hover:underline"

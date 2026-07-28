@@ -1,4 +1,4 @@
-export default function Terms() {
+export default function Privacy() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
       <header className="border-b border-slate-800 bg-slate-950/90 backdrop-blur">
@@ -23,9 +23,9 @@ export default function Terms() {
       </header>
 
       <div className="mx-auto max-w-4xl px-6 py-16">
-        <p className="mb-3 font-mono text-sm text-violet-400">$ terms</p>
+        <p className="mb-3 font-mono text-sm text-violet-400">$ privacy</p>
         <h1 className="mb-2 text-3xl font-bold text-white md:text-4xl">
-          Terms &amp; Conditions
+          Privacy Policy
         </h1>
         <p className="mb-10 font-mono text-xs text-slate-500">
           Last updated: July 27, 2026
@@ -34,202 +34,152 @@ export default function Terms() {
         <div className="space-y-10 text-slate-400">
           <section>
             <p className="leading-7">
-              These Terms &amp; Conditions ("Terms") govern your access to and
-              use of the website and services provided by CloudCap
-              Technologies ("CloudCap," "we," "us," or "our"), operated by
-              Dharmendra Chauhan. By accessing this website or engaging our
-              services, you agree to be bound by these Terms. If you do not
-              agree, please do not use this website or our services.
+              This Privacy Policy explains how CloudCap Technologies
+              ("CloudCap," "we," "us," or "our"), operated by Dharmendra
+              Chauhan, handles information in connection with this website
+              (the "Site"). This Site is informational only — it does not
+              have any forms, logins, e-commerce, or payment processing, and
+              does not knowingly collect personal information beyond what is
+              described below.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              1. Description of Services
+              1. Information We Collect
+            </h2>
+            <ul className="list-disc space-y-2 pl-5 leading-7">
+              <li>
+                <span className="text-slate-300">
+                  Information you send us directly:
+                </span>{" "}
+                if you email us (for example, at support@m365pro.io), we
+                receive whatever information you choose to include, such as
+                your name, email address, and the contents of your message.
+              </li>
+              <li>
+                <span className="text-slate-300">
+                  Standard hosting logs:
+                </span>{" "}
+                like most websites, our hosting provider may automatically
+                record basic technical information such as IP address,
+                browser type, and pages visited, for security and
+                performance purposes. This Site does not use analytics,
+                advertising, or tracking cookies.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="mb-3 text-xl font-bold text-white">
+              2. How We Use Information
             </h2>
             <p className="leading-7">
-              CloudCap Technologies provides IT infrastructure, cloud, and
-              cybersecurity consulting services, including but not limited to
-              network and firewall management, Microsoft 365 and Azure
-              administration, email security, endpoint management, cloud
-              migrations, backup and disaster recovery, and security testing
-              and monitoring (including via tools such as Maester). Specific
-              scope, deliverables, and pricing for any engagement are set out
-              separately in a proposal, statement of work, or service
-              agreement, which will govern in the event of any conflict with
-              these Terms.
+              Any information you send us by email is used only to respond to
+              your inquiry and, if an engagement follows, to discuss and
+              deliver services. Hosting logs are used only for the security
+              and operation of the Site.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              2. Eligibility
+              3. Data Sharing
             </h2>
             <p className="leading-7">
-              This website and our services are intended for use by
-              businesses and individuals who are at least 18 years of age and
-              legally capable of entering into binding contracts under
-              applicable Indian law.
+              We do not sell, rent, or share your information with third
+              parties, except where required by law or a valid legal request
+              from a government or judicial authority.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              3. Client Responsibilities
+              4. Data Retention
             </h2>
             <p className="leading-7">
-              Where we are engaged to access, configure, or manage a client's
-              systems or tenant environments, the client is responsible for
-              ensuring it has the legal right to grant such access, for the
-              accuracy of information provided to us, and for maintaining its
-              own data backups except where backup is explicitly part of the
-              agreed scope of work.
+              We retain emails and any information you send us only as long
+              as reasonably necessary to respond to your inquiry or maintain
+              a record of an ongoing engagement.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              4. Fees &amp; Payment
+              5. Cookies
             </h2>
             <p className="leading-7">
-              Fees for services are quoted separately per engagement and are
-              payable as per the terms specified in the applicable invoice or
-              agreement. Late payments may attract interest or suspension of
-              services, as specified in the relevant agreement.
+              This Site does not use cookies for tracking or advertising. Any
+              cookies set by the hosting platform itself are strictly
+              functional and not used to identify or profile visitors.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              5. Confidentiality
+              6. Children's Privacy
             </h2>
             <p className="leading-7">
-              We treat client systems, data, and business information
-              accessed during an engagement as confidential, and will not
-              disclose it to third parties except as required to deliver the
-              agreed services, with client consent, or as required by law.
+              This Site is not directed at individuals under the age of 18,
+              and we do not knowingly collect information from children.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              6. Intellectual Property
+              7. Third-Party Links
             </h2>
             <p className="leading-7">
-              All content on this website, including text, graphics, logos,
-              and code, is the property of CloudCap Technologies unless
-              otherwise noted, and may not be reproduced without permission.
-              Custom scripts, automation, or configurations developed for a
-              client during an engagement are governed by the terms of that
-              specific agreement.
+              This Site may link to third-party websites (such as Microsoft
+              or Maester). We are not responsible for the privacy practices
+              of those third-party sites.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              7. Third-Party Tools &amp; Platforms
+              8. Your Rights &amp; Grievances
             </h2>
             <p className="leading-7">
-              Our services may involve the use of third-party or open-source
-              platforms (including, without limitation, Microsoft 365, Azure,
-              SonicWall, Datto, and Maester). We are not the developer or
-              owner of these third-party tools and make no warranties
-              regarding their availability, performance, or security beyond
-              our own configuration and management of them.
+              If you have any concerns about how your information is
+              handled, or wish to request that information you've sent us be
+              corrected or deleted, you can contact our Grievance Officer:
+            </p>
+            <p className="mt-3 leading-7">
+              <span className="text-slate-300">Dharmendra Chauhan</span>
+              <br />
+              CloudCap Technologies
+              <br />
+              Agra, Uttar Pradesh, India
+              <br />
+              Email:{" "}
+              <a
+                href="mailto:support@m365pro.io"
+                className="text-violet-400 hover:underline"
+              >
+                support@m365pro.io
+              </a>
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              8. Disclaimer of Warranties
+              9. Changes to This Policy
             </h2>
             <p className="leading-7">
-              This website and its content are provided on an "as is" and
-              "as available" basis without warranties of any kind, express or
-              implied. While we take reasonable care in delivering our
-              services, we do not warrant that any system will be entirely
-              free of vulnerabilities, downtime, or error.
+              If this Site's data practices change — for example, if we later
+              add analytics, a contact form, or newsletter signup — this
+              Policy will be updated to reflect that before those features go
+              live.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              9. Limitation of Liability
+              10. Contact Us
             </h2>
             <p className="leading-7">
-              To the maximum extent permitted by law, CloudCap Technologies
-              shall not be liable for any indirect, incidental, special, or
-              consequential damages arising from the use of this website or
-              our services. Our total liability for any claim arising out of
-              a specific engagement shall not exceed the fees paid by the
-              client for that engagement.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              10. Indemnification
-            </h2>
-            <p className="leading-7">
-              You agree to indemnify and hold CloudCap Technologies harmless
-              from any claims, damages, or expenses arising from your misuse
-              of this website or breach of these Terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              11. Termination
-            </h2>
-            <p className="leading-7">
-              Either party may terminate an ongoing engagement in accordance
-              with the notice period and terms set out in the applicable
-              service agreement. We reserve the right to suspend or terminate
-              access to this website for any user who violates these Terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              12. Governing Law &amp; Jurisdiction
-            </h2>
-            <p className="leading-7">
-              These Terms are governed by the laws of India. Any disputes
-              arising out of or in connection with these Terms shall be
-              subject to the exclusive jurisdiction of the courts at Agra,
-              Uttar Pradesh, India.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              13. Grievance Redressal
-            </h2>
-            <p className="leading-7">
-              In accordance with the Information Technology Act, 2000 and
-              rules made thereunder, any grievances relating to this website
-              or our services may be directed to our Grievance Officer at the
-              contact details below.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              14. Changes to These Terms
-            </h2>
-            <p className="leading-7">
-              We may update these Terms from time to time. Continued use of
-              this website or our services after changes are posted
-              constitutes acceptance of the revised Terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 text-xl font-bold text-white">
-              15. Contact Us
-            </h2>
-            <p className="leading-7">
-              For questions about these Terms, contact us at{" "}
+              For any questions about this Privacy Policy, contact us at{" "}
               <a
                 href="mailto:support@m365pro.io"
                 className="text-violet-400 hover:underline"
