@@ -83,6 +83,57 @@ export default function Home() {
     },
   ];
 
+  const engagementModels = [
+    {
+      title: "Dedicated Engineer",
+      detail:
+        "An engineer works exclusively for your MSP — trained on your PSA, RMM, and ticketing conventions, and managed day-to-day by your leadership.",
+    },
+    {
+      title: "Co-Managed Engineer",
+      detail:
+        "We handle recruiting, onboarding, and delivery oversight; the engineer plugs into your existing team and escalation paths alongside your own staff.",
+    },
+  ];
+
+  const staffingSkills = [
+    "M365 & Exchange Online",
+    "Azure Administration",
+    "Active Directory & GPO",
+    "SonicWall & Firewalls",
+    "Datto & RMM Tooling",
+    "Email Security (DMARC/DKIM/SPF)",
+    "PowerShell Automation",
+    "Maester Security Testing",
+  ];
+
+  const engagementSteps = [
+    {
+      step: "01",
+      title: "Tell us the gap",
+      detail:
+        "Ticket backlog, after-hours coverage, project overflow — we start with the actual problem, not a headcount number.",
+    },
+    {
+      step: "02",
+      title: "Meet the engineer",
+      detail:
+        "You interview and approve before anyone touches a client ticket. No blind placements.",
+    },
+    {
+      step: "03",
+      title: "Trial engagement",
+      detail:
+        "A short paid trial period working inside your tools, so fit is proven before you commit long-term.",
+    },
+    {
+      step: "04",
+      title: "Scale if it works",
+      detail:
+        "Add a second or third engineer only once the first is delivering — not before.",
+    },
+  ];
+
   const maesterFeatures = [
     {
       title: "360+ built-in tests",
@@ -184,6 +235,9 @@ export default function Home() {
             <nav className="hidden gap-8 font-mono text-sm text-slate-400 md:flex">
               <a href="#services" className="hover:text-violet-400">
                 services
+              </a>
+              <a href="#global-team" className="hover:text-violet-400">
+                global team
               </a>
               <a href="#maester" className="hover:text-violet-400">
                 maester
@@ -418,6 +472,102 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Global Team / MSP Staff Augmentation */}
+        <section id="global-team" className="border-b border-slate-800/80 py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal>
+              <p className="mb-3 font-mono text-sm text-violet-400">
+                $ global-team --deploy
+              </p>
+              <h2 className="mb-6 max-w-3xl text-3xl font-bold text-white md:text-4xl">
+                Engineers for U.S. MSPs, delivered from India.
+              </h2>
+              <p className="mb-14 max-w-2xl leading-8 text-slate-400">
+                CloudCap places vetted, MSP-trained engineers from India as an
+                extension of your team — a small, directly managed bench, not
+                a call-center roster. Every engineer is personally screened
+                before they're introduced to a client, and delivery is
+                overseen by Dharmendra Chauhan directly, not handed off to an
+                account manager.
+              </p>
+            </Reveal>
+
+            <div className="mb-14 grid gap-6 md:grid-cols-2">
+              {engagementModels.map((model, i) => (
+                <Reveal key={model.title} delay={i * 100}>
+                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      {model.title}
+                    </h3>
+                    <p className="text-sm leading-6 text-slate-400">
+                      {model.detail}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal>
+              <div className="mb-14 rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
+                <h3 className="mb-2 font-mono text-sm text-violet-400">
+                  why the time zone helps
+                </h3>
+                <p className="text-sm leading-7 text-slate-400">
+                  India's business hours land in the evening and overnight
+                  window for U.S. time zones. That means an India-based
+                  engineer can cover your after-hours ticket queue or overnight
+                  monitoring without you staffing a domestic night shift — the
+                  same hours, just handled by someone whose daytime it
+                  actually is.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="mb-14">
+              <p className="mb-5 font-mono text-sm text-slate-500">
+                skills our engineers bring
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {staffingSkills.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md border border-slate-800 bg-slate-900/80 px-3.5 py-1.5 font-mono text-sm text-slate-300 backdrop-blur"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-14 grid gap-6 md:grid-cols-4">
+              {engagementSteps.map((s, i) => (
+                <Reveal key={s.step} delay={i * 100}>
+                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
+                    <p className="mb-3 font-mono text-xs text-violet-400">
+                      {s.step}
+                    </p>
+                    <h3 className="mb-2 text-sm font-bold text-white">
+                      {s.title}
+                    </h3>
+                    <p className="text-sm leading-6 text-slate-400">
+                      {s.detail}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal>
+              <a
+                href="mailto:support@m365pro.io?subject=MSP%20staff%20augmentation"
+                className="inline-flex rounded-md bg-violet-500 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-400"
+              >
+                Talk about staffing an engineer
+              </a>
+            </Reveal>
           </div>
         </section>
 
