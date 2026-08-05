@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ShieldCheck, Cloud, Terminal, Workflow, Lock } from "lucide-react";
 
 function Reveal({
   children,
@@ -45,37 +46,119 @@ function Reveal({
   );
 }
 
+// Signature element: a simulated terminal session running real admin
+// commands, typed out line by line. Replaces stock photography with
+// something true to the actual work.
+function TerminalPanel() {
+  const lines = [
+    { cmd: "Get-MgUser -Filter \"userType eq 'Guest'\" | Measure-Object", out: "Count : 3" },
+    { cmd: "Test-CsExStorageConnectivity -Sso", out: "TestResult : Success" },
+    { cmd: "az vm list --output table --query \"[].powerState\"", out: "VM running   VM running" },
+    { cmd: "Get-DkimSigningConfig -Identity m365pro.io", out: "Enabled : True" },
+    { cmd: "Get-MailFlowStatus -Tenant northstar-tg.com", out: "Status : Healthy" },
+  ];
+
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [showOutput, setShowOutput] = useState(0);
+
+  useEffect(() => {
+    if (lineIndex >= lines.length) return;
+    const current = lines[lineIndex].cmd;
+
+    if (charIndex < current.length) {
+      const t = setTimeout(() => setCharIndex((c) => c + 1), 18);
+      return () => clearTimeout(t);
+    } else {
+      const t = setTimeout(() => {
+        setShowOutput((n) => n + 1);
+        setLineIndex((i) => i + 1);
+        setCharIndex(0);
+      }, 350);
+      return () => clearTimeout(t);
+    }
+  }, [charIndex, lineIndex]);
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl backdrop-blur">
+      <div className="flex items-center gap-2 border-b border-slate-800 px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
+        <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
+        <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
+        <span className="ml-3 font-mono text-xs text-slate-500">
+          admin@cloudcap:~$
+        </span>
+      </div>
+      <div className="min-h-[260px] space-y-2.5 p-5 font-mono text-[13px] leading-relaxed">
+        {lines.slice(0, showOutput).map((l, i) => (
+          <div key={i}>
+            <p className="text-slate-500">
+              <span className="text-amber-500">$</span> {l.cmd}
+            </p>
+            <p className="pl-4 text-emerald-400">{l.out}</p>
+          </div>
+        ))}
+        {lineIndex < lines.length && (
+          <p className="text-slate-500">
+            <span className="text-amber-500">$</span>{" "}
+            {lines[lineIndex].cmd.slice(0, charIndex)}
+            <span className="animate-pulse text-amber-400">▍</span>
+          </p>
+        )}
+        {lineIndex >= lines.length && (
+          <p className="pt-1 text-slate-600">
+            <span className="text-amber-500">$</span>{" "}
+            <span className="animate-pulse">▍</span>
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const coreServices = [
     {
       title: "Microsoft 365 Migrations",
       category: "Microsoft 365",
+      icon: Cloud,
       detail:
         "Google Workspace, Exchange, and hybrid migrations to Microsoft 365 with minimal downtime, licensing guidance, and post-migration optimization.",
     },
     {
       title: "SharePoint Migrations",
       category: "Collaboration",
+      icon: Workflow,
       detail:
         "File share and SharePoint migrations, permissions redesign, governance policies, document libraries, and modern intranet builds.",
     },
     {
       title: "Azure Infrastructure",
       category: "Cloud",
+      icon: Cloud,
       detail:
         "Virtual machines, networking, storage, monitoring, backups, hybrid connectivity, and production-ready Azure deployments.",
     },
     {
       title: "Security Assessments",
       category: "Security",
+      icon: ShieldCheck,
       detail:
         "Conditional Access reviews, MFA enforcement, Microsoft Defender configuration, email authentication (DMARC/DKIM/SPF), and Zero Trust baselines.",
     },
     {
       title: "PowerShell Automation",
       category: "Automation",
+      icon: Terminal,
       detail:
         "Reporting scripts, compliance checks, onboarding workflows, bulk user management, and infrastructure automation.",
+    },
+    {
+      title: "Zero Trust Architecture",
+      category: "Security",
+      icon: Lock,
+      detail:
+        "Device compliance, Conditional Access policies, and continuous access evaluation across the tenant.",
     },
   ];
 
@@ -151,61 +234,37 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen scroll-smooth overflow-hidden bg-slate-950 text-slate-100">
-      {/* Background */}
-      <div className="fixed inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80"
-          alt="Datacenter Infrastructure"
-          className="h-full w-full object-cover opacity-15 filter brightness-75 contrast-125"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950" />
-      </div>
-
+    <main className="relative min-h-screen scroll-smooth overflow-hidden bg-slate-950 font-sans text-slate-100">
       <div className="relative z-10">
         {/* Header */}
         <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
             <a href="#home" className="flex items-center gap-3">
-              <img
-                src="/logo.png"
-                alt="CloudCap Technologies"
-                className="h-11 w-11 rounded-lg border border-slate-700 bg-slate-900 object-contain p-1.5"
-              />
+              <div className="flex h-10 w-10 items-center justify-center rounded border border-amber-500/40 bg-amber-500/10 font-mono text-sm font-bold text-amber-400">
+                cc
+              </div>
               <span>
-                <p className="text-lg font-bold leading-tight text-white">
+                <p className="font-mono text-lg font-bold leading-tight text-white">
                   CloudCap Technologies
                 </p>
-                <p className="font-mono text-xs text-violet-400">
+                <p className="font-mono text-xs text-amber-500/70">
                   it infrastructure &amp; cybersecurity
                 </p>
               </span>
             </a>
 
             <nav className="hidden gap-8 font-mono text-sm text-slate-400 md:flex">
-              <a href="#services" className="hover:text-violet-400">
-                services
-              </a>
-              <a href="#portfolio" className="hover:text-violet-400">
-                portfolio
-              </a>
-              <a href="#blog" className="hover:text-violet-400">
-                blog
-              </a>
-              <a href="#about" className="hover:text-violet-400">
-                about
-              </a>
-              <a href="#capabilities" className="hover:text-violet-400">
-                capabilities
-              </a>
-              <a href="#contact" className="hover:text-violet-400">
-                contact
-              </a>
+              <a href="#services" className="hover:text-amber-400">services</a>
+              <a href="#portfolio" className="hover:text-amber-400">portfolio</a>
+              <a href="#blog" className="hover:text-amber-400">blog</a>
+              <a href="#about" className="hover:text-amber-400">about</a>
+              <a href="#capabilities" className="hover:text-amber-400">capabilities</a>
+              <a href="#contact" className="hover:text-amber-400">contact</a>
             </nav>
 
             <a
               href="mailto:support@m365pro.io"
-              className="hidden rounded-md border border-violet-500 px-4 py-2 font-mono text-sm text-violet-400 hover:bg-violet-500 hover:text-slate-950 md:inline-flex"
+              className="hidden rounded border border-amber-500/50 px-4 py-2 font-mono text-sm text-amber-400 hover:bg-amber-500 hover:text-slate-950 md:inline-flex"
             >
               support@m365pro.io
             </a>
@@ -216,11 +275,11 @@ export default function Home() {
         <section id="home" className="border-b border-slate-800/80">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
             <div>
-              <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-violet-400 backdrop-blur">
+              <p className="mb-5 inline-flex items-center gap-2 rounded border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-amber-400 backdrop-blur">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
                 infrastructure state: healthy
               </p>
-              <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+              <h1 className="mb-6 font-mono text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
                 Microsoft 365, Azure &amp; Cybersecurity Consulting.
               </h1>
               <p className="mb-8 max-w-xl text-lg leading-8 text-slate-400">
@@ -231,139 +290,52 @@ export default function Home() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a
                   href="mailto:support@m365pro.io"
-                  className="inline-flex justify-center rounded-md bg-violet-500 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-400"
+                  className="inline-flex justify-center rounded bg-amber-500 px-6 py-3 font-mono font-semibold text-slate-950 hover:bg-amber-400"
                 >
                   Consult an Engineer
                 </a>
                 <a
                   href="#services"
-                  className="inline-flex justify-center rounded-md border border-slate-700 px-6 py-3 font-semibold text-slate-200 hover:border-violet-500 hover:text-violet-400"
+                  className="inline-flex justify-center rounded border border-slate-700 px-6 py-3 font-mono font-semibold text-slate-200 hover:border-amber-500 hover:text-amber-400"
                 >
                   Explore Services
                 </a>
               </div>
             </div>
 
-            {/* Right visual card */}
-            <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80 shadow-2xl backdrop-blur">
-              <div className="flex items-center justify-between border-b border-slate-800 px-5 py-3">
-                <span className="font-mono text-xs text-slate-500">
-                  engagement-overview
-                </span>
-                <span className="rounded border border-violet-500/30 bg-violet-500/10 px-2 py-0.5 font-mono text-[11px] text-violet-400">
-                  active practice
-                </span>
-              </div>
-              <div className="space-y-4 p-6">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-slate-400">Focus areas</span>
-                  <span className="font-mono text-xs text-violet-400">5 core services</span>
-                </div>
-                <ul className="space-y-3 text-sm text-slate-300">
-                  <li className="flex gap-3">
-                    <span className="text-emerald-400">✓</span>
-                    Microsoft 365 &amp; Exchange migrations
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-emerald-400">✓</span>
-                    SharePoint governance &amp; migrations
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-emerald-400">✓</span>
-                    Azure infrastructure &amp; hybrid cloud
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-emerald-400">✓</span>
-                    Security assessments &amp; Zero Trust
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-emerald-400">✓</span>
-                    PowerShell automation &amp; reporting
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Visual showcase */}
-        <section className="border-b border-slate-800/80 bg-slate-900/40 py-16">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="grid gap-6 md:grid-cols-3">
-              <Reveal>
-                <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
-                  <img
-                    src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
-                    alt="Network Hardware"
-                    className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="p-5">
-                    <h3 className="font-bold text-white">Networks &amp; Security</h3>
-                    <p className="mt-1 text-xs text-slate-400">
-                      Firewalls, VLANs, VPNs, and perimeter controls.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-              <Reveal delay={100}>
-                <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
-                  <img
-                    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
-                    alt="Email Security"
-                    className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="p-5">
-                    <h3 className="font-bold text-white">Email &amp; Identity</h3>
-                    <p className="mt-1 text-xs text-slate-400">
-                      DMARC, Conditional Access, and Defender configuration.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-              <Reveal delay={200}>
-                <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
-                  <img
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-                    alt="Cloud Infrastructure"
-                    className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="p-5">
-                    <h3 className="font-bold text-white">Cloud &amp; Migrations</h3>
-                    <p className="mt-1 text-xs text-slate-400">
-                      Microsoft 365, Azure, and hybrid environments.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
+            <TerminalPanel />
           </div>
         </section>
 
         {/* Services */}
         <section id="services" className="border-b border-slate-800/80 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <p className="mb-3 font-mono text-sm text-violet-400">$ services</p>
-            <h2 className="mb-12 max-w-2xl text-3xl font-bold text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-amber-500">$ services</p>
+            <h2 className="mb-12 max-w-2xl font-mono text-3xl font-bold text-white md:text-4xl">
               Focused consulting and hands-on engineering.
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {coreServices.map((service, i) => (
-                <Reveal key={service.title} delay={(i % 3) * 100}>
-                  <div className="flex h-full flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/80 p-6 transition backdrop-blur hover:border-violet-500 hover:shadow-lg hover:shadow-violet-500/10">
-                    <div>
-                      <span className="mb-3 inline-block rounded border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-xs text-violet-400">
-                        {service.category}
-                      </span>
-                      <h3 className="mb-2 text-lg font-bold text-white">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm leading-6 text-slate-400">
-                        {service.detail}
-                      </p>
+              {coreServices.map((service, i) => {
+                const Icon = service.icon;
+                return (
+                  <Reveal key={service.title} delay={(i % 3) * 100}>
+                    <div className="flex h-full flex-col gap-4 rounded-lg border border-slate-800 bg-slate-900/80 p-6 transition backdrop-blur hover:border-amber-500/60 hover:shadow-lg hover:shadow-amber-500/5">
+                      <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
+                      <div>
+                        <span className="mb-2 inline-block rounded border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 font-mono text-xs text-amber-400">
+                          {service.category}
+                        </span>
+                        <h3 className="mb-2 font-mono text-lg font-bold text-white">
+                          {service.title}
+                        </h3>
+                        <p className="text-sm leading-6 text-slate-400">
+                          {service.detail}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -371,8 +343,8 @@ export default function Home() {
         {/* Portfolio */}
         <section id="portfolio" className="border-b border-slate-800/80 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <p className="mb-3 font-mono text-sm text-violet-400">$ portfolio</p>
-            <h2 className="mb-4 max-w-2xl text-3xl font-bold text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-amber-500">$ portfolio</p>
+            <h2 className="mb-4 max-w-2xl font-mono text-3xl font-bold text-white md:text-4xl">
               Selected project work.
             </h2>
             <p className="mb-12 max-w-2xl text-slate-400">
@@ -381,8 +353,8 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {portfolioProjects.map((project, i) => (
                 <Reveal key={project.title} delay={(i % 2) * 100}>
-                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-violet-500/60">
-                    <h3 className="mb-2 text-lg font-bold text-white">
+                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-amber-500/50">
+                    <h3 className="mb-2 font-mono text-lg font-bold text-white">
                       {project.title}
                     </h3>
                     <p className="mb-4 text-sm leading-6 text-slate-400">
@@ -408,8 +380,8 @@ export default function Home() {
         {/* Blog */}
         <section id="blog" className="border-b border-slate-800/80 bg-slate-900/40 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <p className="mb-3 font-mono text-sm text-violet-400">$ blog</p>
-            <h2 className="mb-4 max-w-2xl text-3xl font-bold text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-amber-500">$ blog</p>
+            <h2 className="mb-4 max-w-2xl font-mono text-3xl font-bold text-white md:text-4xl">
               Technical notes &amp; guides.
             </h2>
             <p className="mb-12 max-w-2xl text-slate-400">
@@ -418,11 +390,11 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {blogPosts.map((post, i) => (
                 <Reveal key={post.title} delay={(i % 2) * 100}>
-                  <article className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-violet-500/60">
-                    <span className="mb-3 inline-block rounded border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-xs text-violet-400">
+                  <article className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-amber-500/50">
+                    <span className="mb-3 inline-block rounded border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 font-mono text-xs text-amber-400">
                       {post.category}
                     </span>
-                    <h3 className="mb-2 text-lg font-bold text-white">
+                    <h3 className="mb-2 font-mono text-lg font-bold text-white">
                       {post.title}
                     </h3>
                     <p className="text-sm leading-6 text-slate-400">
@@ -443,8 +415,8 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:items-center">
             <Reveal>
               <div>
-                <p className="mb-3 font-mono text-sm text-violet-400">$ about</p>
-                <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+                <p className="mb-3 font-mono text-sm text-amber-500">$ about</p>
+                <h2 className="mb-6 font-mono text-3xl font-bold text-white md:text-4xl">
                   Hands-on engineering for your Microsoft stack.
                 </h2>
                 <p className="mb-5 leading-8 text-slate-400">
@@ -462,8 +434,8 @@ export default function Home() {
             </Reveal>
             <Reveal delay={150}>
               <div className="rounded-xl border border-slate-800 bg-slate-900/80 p-8 backdrop-blur">
-                <p className="mb-1 font-mono text-xs text-violet-400">overview</p>
-                <h3 className="mb-1 text-2xl font-bold text-white">
+                <p className="mb-1 font-mono text-xs text-amber-500">overview</p>
+                <h3 className="mb-1 font-mono text-2xl font-bold text-white">
                   Core Competencies
                 </h3>
                 <p className="mb-6 text-slate-400">
@@ -499,15 +471,15 @@ export default function Home() {
         {/* Capabilities */}
         <section id="capabilities" className="border-b border-slate-800/80 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <p className="mb-3 font-mono text-sm text-violet-400">$ capabilities</p>
-            <h2 className="mb-10 text-3xl font-bold text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-amber-500">$ capabilities</p>
+            <h2 className="mb-10 font-mono text-3xl font-bold text-white md:text-4xl">
               Technologies &amp; platforms.
             </h2>
             <div className="flex flex-wrap gap-2.5">
               {techStack.map((item) => (
                 <span
                   key={item}
-                  className="rounded-md border border-slate-800 bg-slate-900/80 px-3.5 py-1.5 font-mono text-sm text-slate-300 backdrop-blur"
+                  className="rounded border border-slate-800 bg-slate-900/80 px-3.5 py-1.5 font-mono text-sm text-slate-300 backdrop-blur"
                 >
                   {item}
                 </span>
@@ -519,8 +491,8 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="py-24">
           <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="mb-3 font-mono text-sm text-violet-400">$ contact</p>
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-amber-500">$ contact</p>
+            <h2 className="mb-6 font-mono text-3xl font-bold text-white md:text-4xl">
               Ready to talk about a project?
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-slate-400">
@@ -529,7 +501,7 @@ export default function Home() {
             </p>
             <a
               href="mailto:support@m365pro.io"
-              className="inline-flex rounded-md bg-violet-500 px-8 py-3.5 font-semibold text-slate-950 hover:bg-violet-400"
+              className="inline-flex rounded bg-amber-500 px-8 py-3.5 font-mono font-semibold text-slate-950 hover:bg-amber-400"
             >
               support@m365pro.io
             </a>
@@ -538,12 +510,8 @@ export default function Home() {
 
         <footer className="border-t border-slate-800 px-6 py-8 text-center font-mono text-xs text-slate-600">
           <div className="mb-2 flex justify-center gap-6">
-            <a href="/terms" className="hover:text-violet-400">
-              terms
-            </a>
-            <a href="/privacy" className="hover:text-violet-400">
-              privacy
-            </a>
+            <a href="/terms" className="hover:text-amber-400">terms</a>
+            <a href="/privacy" className="hover:text-amber-400">privacy</a>
           </div>
           © 2026 CloudCap Technologies. All rights reserved.
         </footer>
