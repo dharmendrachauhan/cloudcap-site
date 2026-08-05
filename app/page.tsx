@@ -17,6 +17,7 @@ function Reveal({
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,6 +27,7 @@ function Reveal({
       },
       { threshold: 0.15 }
     );
+
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
@@ -46,162 +48,111 @@ function Reveal({
 export default function Home() {
   const coreServices = [
     {
-      title: "Network & Perimeter Security",
-      category: "Infrastructure",
+      title: "Microsoft 365 Migrations",
+      category: "Microsoft 365",
       detail:
-        "Next-gen firewall management, site-to-site VPNs, VLAN segmentation, zero-trust network access (ZTNA), and perimeter routing.",
+        "Google Workspace, Exchange, and hybrid migrations to Microsoft 365 with minimal downtime, licensing guidance, and post-migration optimization.",
     },
     {
-      title: "Email Hygiene & Mail Flow Security",
-      category: "Security",
+      title: "SharePoint Migrations",
+      category: "Collaboration",
       detail:
-        "Strict DMARC/DKIM/SPF enforcement, inbound/outbound spam filtering, anti-phishing policies, and mail gateway hygiene.",
+        "File share and SharePoint migrations, permissions redesign, governance policies, document libraries, and modern intranet builds.",
     },
     {
-      title: "Microsoft Cloud & Identity",
+      title: "Azure Infrastructure",
       category: "Cloud",
       detail:
-        "M365 tenant governance, Entra ID hybrid sync, Exchange Online, SharePoint architecture, and Azure infrastructure.",
+        "Virtual machines, networking, storage, monitoring, backups, hybrid connectivity, and production-ready Azure deployments.",
     },
     {
-      title: "Endpoint & Systems Management",
-      category: "Operations",
+      title: "Security Assessments",
+      category: "Security",
       detail:
-        "Patch management, RMM agent deployment, Intune device compliance, and endpoint threat detection across Windows and Linux.",
+        "Conditional Access reviews, MFA enforcement, Microsoft Defender configuration, email authentication (DMARC/DKIM/SPF), and Zero Trust baselines.",
     },
     {
-      title: "Virtualization & Cloud Migrations",
-      category: "Modernization",
+      title: "PowerShell Automation",
+      category: "Automation",
       detail:
-        "On-prem Hyper-V / VMware environments to cloud or hybrid models, server migrations, and zero-downtime cutovers.",
-    },
-    {
-      title: "Backup, DR & Business Continuity",
-      category: "Resilience",
-      detail:
-        "Immutable backup strategies, ransomware resilience, automated disaster recovery testing, and rapid incident restoration.",
+        "Reporting scripts, compliance checks, onboarding workflows, bulk user management, and infrastructure automation.",
     },
   ];
 
-  const engagementModels = [
+  const portfolioProjects = [
     {
-      title: "Dedicated Engineer",
+      title: "Google Workspace → Microsoft 365 Migration",
       detail:
-        "An engineer works exclusively for your MSP — trained on your PSA, RMM, and ticketing conventions, and managed day-to-day by your leadership.",
+        "Full tenant migration including mail, Drive, and calendar for a multi-site organization with staged cutover and user training.",
+      tags: ["M365", "Migration", "Google Workspace"],
     },
     {
-      title: "Co-Managed Engineer",
+      title: "SharePoint Online Migration & Governance",
       detail:
-        "We handle recruiting, onboarding, and delivery oversight; the engineer plugs into your existing team and escalation paths alongside your own staff.",
-    },
-  ];
-
-  const staffingSkills = [
-    "M365 & Exchange Online",
-    "Azure Administration",
-    "Active Directory & GPO",
-    "SonicWall & Firewalls",
-    "Datto & RMM Tooling",
-    "Email Security (DMARC/DKIM/SPF)",
-    "PowerShell Automation",
-    "Maester Security Testing",
-  ];
-
-  const engagementSteps = [
-    {
-      step: "01",
-      title: "Tell us the gap",
-      detail:
-        "Ticket backlog, after-hours coverage, project overflow — we start with the actual problem, not a headcount number.",
+        "Migrated on-premises file shares and legacy SharePoint sites, redesigned permissions, and implemented retention & sharing policies.",
+      tags: ["SharePoint", "Governance", "OneDrive"],
     },
     {
-      step: "02",
-      title: "Meet the engineer",
+      title: "Azure PostgreSQL & Hybrid Networking",
       detail:
-        "You interview and approve before anyone touches a client ticket. No blind placements.",
+        "Deployed managed PostgreSQL, configured VNets, private endpoints, and site-to-site VPN for secure hybrid access.",
+      tags: ["Azure", "PostgreSQL", "Networking"],
     },
     {
-      step: "03",
-      title: "Trial engagement",
+      title: "Conditional Access & Zero Trust Rollout",
       detail:
-        "A short paid trial period working inside your tools, so fit is proven before you commit long-term.",
-    },
-    {
-      step: "04",
-      title: "Scale if it works",
-      detail:
-        "Add a second or third engineer only once the first is delivering — not before.",
+        "Designed and deployed Conditional Access policies, MFA, device compliance, and continuous access evaluation across the tenant.",
+      tags: ["Entra ID", "Security", "Zero Trust"],
     },
   ];
 
-  const maesterFeatures = [
+  const blogPosts = [
     {
-      title: "360+ built-in tests",
+      title: "SharePoint Migration Tips That Actually Work",
       detail:
-        "Covers Entra ID, Exchange Online, Defender for Office 365, Teams, SharePoint, and Conditional Access out of the box.",
+        "Practical lessons from real migrations: permissions mapping, large libraries, throttling, and user communication.",
+      category: "SharePoint",
     },
     {
-      title: "Mapped to real baselines",
+      title: "Useful PowerShell Scripts for Microsoft 365 Admins",
       detail:
-        "Wired into EIDSCA, CISA SCuBA, CIS Microsoft 365, and ORCA — not a one-off checklist someone made up.",
+        "A curated set of scripts for reporting, bulk updates, license management, and security posture checks.",
+      category: "PowerShell",
     },
     {
-      title: "CI/CD scheduled runs",
+      title: "Azure Infrastructure Essentials for Small Teams",
       detail:
-        "Runs nightly or on every change via GitHub Actions, Azure DevOps, or Azure Automation — configuration treated as code.",
+        "How to structure resource groups, networking, monitoring, and backups without over-engineering.",
+      category: "Azure",
     },
     {
-      title: "Custom Pester tests",
+      title: "Exchange Online Tricks Every Admin Should Know",
       detail:
-        "We encode your organization's own access and security policies as tests, so drift gets caught before it becomes an incident.",
+        "Transport rules, message trace techniques, shared mailbox best practices, and mail flow troubleshooting.",
+      category: "Exchange",
     },
   ];
 
   const techStack = [
-    "Firewalls & Routing",
-    "VLANs & VPNs",
-    "DMARC / DKIM / SPF",
-    "Email Security Gateways",
-    "Active Directory & Entra ID",
     "Microsoft 365",
+    "Exchange Online",
+    "SharePoint & OneDrive",
+    "Entra ID / Active Directory",
     "Azure Infrastructure",
-    "Hyper-V / VMware",
-    "RMM & Patching",
+    "Conditional Access",
     "Microsoft Defender",
     "Intune & MDM",
     "PowerShell Automation",
-    "Maester & Pester Testing",
-    "Backup & Disaster Recovery",
-    "Linux / Windows Server",
+    "Firewalls & VPNs",
+    "DMARC / DKIM / SPF",
+    "Hybrid Cloud",
+    "Backup & DR",
     "Zero Trust Architecture",
-  ];
-
-  const reportRows = [
-    {
-      area: "Identity & Access",
-      check: "Conditional Access baseline coverage",
-      status: "pass",
-    },
-    {
-      area: "Email Security",
-      check: "DKIM / SPF / DMARC enforced",
-      status: "pass",
-    },
-    {
-      area: "Defender for Office 365",
-      check: "Safe Links & Safe Attachments enabled",
-      status: "pass",
-    },
-    {
-      area: "SharePoint & Sharing",
-      check: "External sharing scope",
-      status: "review",
-    },
   ];
 
   return (
     <main className="relative min-h-screen scroll-smooth overflow-hidden bg-slate-950 text-slate-100">
-      {/* Background Datacenter Image with Dark Overlay */}
+      {/* Background */}
       <div className="fixed inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80"
@@ -211,7 +162,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950" />
       </div>
 
-      {/* Content Layer */}
       <div className="relative z-10">
         {/* Header */}
         <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
@@ -236,11 +186,11 @@ export default function Home() {
               <a href="#services" className="hover:text-violet-400">
                 services
               </a>
-              <a href="#global-team" className="hover:text-violet-400">
-                global team
+              <a href="#portfolio" className="hover:text-violet-400">
+                portfolio
               </a>
-              <a href="#maester" className="hover:text-violet-400">
-                maester
+              <a href="#blog" className="hover:text-violet-400">
+                blog
               </a>
               <a href="#about" className="hover:text-violet-400">
                 about
@@ -262,7 +212,7 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Hero Section */}
+        {/* Hero */}
         <section id="home" className="border-b border-slate-800/80">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
             <div>
@@ -270,17 +220,14 @@ export default function Home() {
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
                 infrastructure state: healthy
               </p>
-
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
-                Complete IT Infrastructure &amp; Security Engineering.
+                Microsoft 365, Azure &amp; Cybersecurity Consulting.
               </h1>
-
               <p className="mb-8 max-w-xl text-lg leading-8 text-slate-400">
-                From firewalls, switches, and email hygiene to Microsoft 365,
-                Azure, and virtualization — CloudCap Technologies designs,
-                hardens, and manages your entire technology ecosystem.
+                Helping organizations secure, migrate, automate and modernize
+                their Microsoft 365, Azure and SharePoint environments through
+                practical consulting and hands-on engineering.
               </p>
-
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a
                   href="mailto:support@m365pro.io"
@@ -297,91 +244,49 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Maester security report widget */}
+            {/* Right visual card */}
             <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80 shadow-2xl backdrop-blur">
               <div className="flex items-center justify-between border-b border-slate-800 px-5 py-3">
                 <span className="font-mono text-xs text-slate-500">
-                  maester-report.html
+                  engagement-overview
                 </span>
                 <span className="rounded border border-violet-500/30 bg-violet-500/10 px-2 py-0.5 font-mono text-[11px] text-violet-400">
-                  live tenant scan
+                  active practice
                 </span>
               </div>
-
-              <div className="flex items-center gap-6 p-6">
-                <svg width="96" height="96" viewBox="0 0 96 96" className="shrink-0">
-                  <circle
-                    cx="48"
-                    cy="48"
-                    r="40"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    className="text-slate-800"
-                  />
-                  <circle
-                    cx="48"
-                    cy="48"
-                    r="40"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    strokeLinecap="round"
-                    strokeDasharray={2 * Math.PI * 40}
-                    strokeDashoffset={2 * Math.PI * 40 * (1 - 0.94)}
-                    transform="rotate(-90 48 48)"
-                    className="text-violet-400"
-                  />
-                  <text
-                    x="48"
-                    y="53"
-                    textAnchor="middle"
-                    className="fill-white text-lg font-bold"
-                  >
-                    94%
-                  </text>
-                </svg>
-
-                <div>
-                  <p className="text-sm font-semibold text-white">
-                    Tenant Security Score
-                  </p>
-                  <p className="font-mono text-xs text-slate-500">
-                    47 passed · 1 to review · 0 failed
-                  </p>
+              <div className="space-y-4 p-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-slate-400">Focus areas</span>
+                  <span className="font-mono text-xs text-violet-400">5 core services</span>
                 </div>
-              </div>
-
-              <div className="space-y-2 border-t border-slate-800 px-6 py-5">
-                {reportRows.map((row) => (
-                  <div
-                    key={row.check}
-                    className="flex items-center justify-between font-mono text-xs"
-                  >
-                    <span className="text-slate-400">
-                      {row.area}
-                      <span className="mx-2 text-slate-700">/</span>
-                      <span className="text-slate-300">{row.check}</span>
-                    </span>
-                    {row.status === "pass" ? (
-                      <span className="flex items-center gap-1.5 text-emerald-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        pass
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1.5 text-amber-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                        review
-                      </span>
-                    )}
-                  </div>
-                ))}
+                <ul className="space-y-3 text-sm text-slate-300">
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    Microsoft 365 &amp; Exchange migrations
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    SharePoint governance &amp; migrations
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    Azure infrastructure &amp; hybrid cloud
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    Security assessments &amp; Zero Trust
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    PowerShell automation &amp; reporting
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Visual Showcase: Networking, Security & Cloud */}
+        {/* Visual showcase */}
         <section className="border-b border-slate-800/80 bg-slate-900/40 py-16">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid gap-6 md:grid-cols-3">
@@ -389,54 +294,43 @@ export default function Home() {
                 <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
                   <img
                     src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
-                    alt="Network Hardware & Firewall Setup"
+                    alt="Network Hardware"
                     className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="p-5">
-                    <h3 className="font-bold text-white">
-                      Networks &amp; Firewalls
-                    </h3>
+                    <h3 className="font-bold text-white">Networks &amp; Security</h3>
                     <p className="mt-1 text-xs text-slate-400">
-                      Switching, VLAN segmentation, site-to-site VPNs, and
-                      perimeter threat control.
+                      Firewalls, VLANs, VPNs, and perimeter controls.
                     </p>
                   </div>
                 </div>
               </Reveal>
-
               <Reveal delay={100}>
                 <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
                   <img
                     src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
-                    alt="Email Security and Threat Prevention"
+                    alt="Email Security"
                     className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="p-5">
-                    <h3 className="font-bold text-white">
-                      Email &amp; Endpoint Protection
-                    </h3>
+                    <h3 className="font-bold text-white">Email &amp; Identity</h3>
                     <p className="mt-1 text-xs text-slate-400">
-                      DMARC enforcement, anti-phishing gateways, EDR agents,
-                      and automated patching.
+                      DMARC, Conditional Access, and Defender configuration.
                     </p>
                   </div>
                 </div>
               </Reveal>
-
               <Reveal delay={200}>
                 <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
                   <img
                     src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-                    alt="Cloud Infrastructure & Hybrid Server Environment"
+                    alt="Cloud Infrastructure"
                     className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="p-5">
-                    <h3 className="font-bold text-white">
-                      Hybrid Cloud &amp; Servers
-                    </h3>
+                    <h3 className="font-bold text-white">Cloud &amp; Migrations</h3>
                     <p className="mt-1 text-xs text-slate-400">
-                      M365, Azure, on-premises virtual machine orchestration,
-                      and cloud migrations.
+                      Microsoft 365, Azure, and hybrid environments.
                     </p>
                   </div>
                 </div>
@@ -450,10 +344,9 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6">
             <p className="mb-3 font-mono text-sm text-violet-400">$ services</p>
             <h2 className="mb-12 max-w-2xl text-3xl font-bold text-white md:text-4xl">
-              End-to-end IT consulting and hands-on system administration.
+              Focused consulting and hands-on engineering.
             </h2>
-
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {coreServices.map((service, i) => (
                 <Reveal key={service.title} delay={(i % 3) * 100}>
                   <div className="flex h-full flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/80 p-6 transition backdrop-blur hover:border-violet-500 hover:shadow-lg hover:shadow-violet-500/10">
@@ -475,164 +368,73 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Global Team / MSP Staff Augmentation */}
-        <section id="global-team" className="border-b border-slate-800/80 py-24">
+        {/* Portfolio */}
+        <section id="portfolio" className="border-b border-slate-800/80 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <Reveal>
-              <p className="mb-3 font-mono text-sm text-violet-400">
-                $ global-team --deploy
-              </p>
-              <h2 className="mb-6 max-w-3xl text-3xl font-bold text-white md:text-4xl">
-                Engineers for U.S. MSPs, delivered from India.
-              </h2>
-              <p className="mb-14 max-w-2xl leading-8 text-slate-400">
-                CloudCap places vetted, MSP-trained engineers from India as an
-                extension of your team — a small, directly managed bench, not
-                a call-center roster. Every engineer is personally screened
-                before they're introduced to a client, and delivery is
-                overseen by Dharmendra Chauhan directly, not handed off to an
-                account manager.
-              </p>
-            </Reveal>
-
-            <div className="mb-14 grid gap-6 md:grid-cols-2">
-              {engagementModels.map((model, i) => (
-                <Reveal key={model.title} delay={i * 100}>
-                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
+            <p className="mb-3 font-mono text-sm text-violet-400">$ portfolio</p>
+            <h2 className="mb-4 max-w-2xl text-3xl font-bold text-white md:text-4xl">
+              Selected project work.
+            </h2>
+            <p className="mb-12 max-w-2xl text-slate-400">
+              Representative engagements across migrations, infrastructure, and security.
+            </p>
+            <div className="grid gap-6 md:grid-cols-2">
+              {portfolioProjects.map((project, i) => (
+                <Reveal key={project.title} delay={(i % 2) * 100}>
+                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-violet-500/60">
                     <h3 className="mb-2 text-lg font-bold text-white">
-                      {model.title}
+                      {project.title}
                     </h3>
-                    <p className="text-sm leading-6 text-slate-400">
-                      {model.detail}
+                    <p className="mb-4 text-sm leading-6 text-slate-400">
+                      {project.detail}
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded border border-slate-700 bg-slate-950/60 px-2.5 py-1 font-mono text-xs text-slate-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </Reveal>
               ))}
             </div>
-
-            <Reveal>
-              <div className="mb-14 rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
-                <h3 className="mb-2 font-mono text-sm text-violet-400">
-                  why the time zone helps
-                </h3>
-                <p className="text-sm leading-7 text-slate-400">
-                  India's business hours land in the evening and overnight
-                  window for U.S. time zones. That means an India-based
-                  engineer can cover your after-hours ticket queue or overnight
-                  monitoring without you staffing a domestic night shift — the
-                  same hours, just handled by someone whose daytime it
-                  actually is.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="mb-14">
-              <p className="mb-5 font-mono text-sm text-slate-500">
-                skills our engineers bring
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {staffingSkills.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-md border border-slate-800 bg-slate-900/80 px-3.5 py-1.5 font-mono text-sm text-slate-300 backdrop-blur"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-14 grid gap-6 md:grid-cols-4">
-              {engagementSteps.map((s, i) => (
-                <Reveal key={s.step} delay={i * 100}>
-                  <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
-                    <p className="mb-3 font-mono text-xs text-violet-400">
-                      {s.step}
-                    </p>
-                    <h3 className="mb-2 text-sm font-bold text-white">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm leading-6 text-slate-400">
-                      {s.detail}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal>
-              <a
-                href="mailto:support@m365pro.io?subject=MSP%20staff%20augmentation"
-                className="inline-flex rounded-md bg-violet-500 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-400"
-              >
-                Talk about staffing an engineer
-              </a>
-            </Reveal>
           </div>
         </section>
 
-        {/* Maester */}
-        <section
-          id="maester"
-          className="border-b border-slate-800/80 bg-slate-900/40 py-24"
-        >
+        {/* Blog */}
+        <section id="blog" className="border-b border-slate-800/80 bg-slate-900/40 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="grid gap-12 md:grid-cols-2 md:items-start">
-              <Reveal>
-                <div>
-                  <p className="mb-3 font-mono text-sm text-violet-400">
-                    $ maester --deploy
-                  </p>
-                  <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-                    Continuous Microsoft 365 security testing with Maester.
-                  </h2>
-                  <p className="mb-5 leading-8 text-slate-400">
-                    Maester is a free, open-source PowerShell test automation
-                    framework, built on Pester and Microsoft Graph, that runs
-                    hundreds of automated checks against your Microsoft 365
-                    tenant — Entra ID, Exchange Online, Defender for Office
-                    365, Teams, and SharePoint — and reports the results as a
-                    readable HTML report.
-                  </p>
-                  <p className="mb-5 leading-8 text-slate-400">
-                    Instead of assuming your Conditional Access policies and
-                    mail security settings are still correct, Maester tests
-                    them the way you'd test code — continuously, and before a
-                    change ships. A broken exclusion group or a
-                    quietly-loosened sharing policy shows up as a failed test,
-                    not an incident.
-                  </p>
-                  <p className="leading-8 text-slate-400">
-                    We implement and run Maester for clients directly —
-                    scheduled scans, custom tests written for your specific
-                    policies, and alerts sent to email or Teams when your
-                    posture drifts.
-                  </p>
-
-                  <a
-                    href="mailto:support@m365pro.io?subject=Maester%20rollout"
-                    className="mt-8 inline-flex rounded-md bg-violet-500 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-400"
-                  >
-                    Ask about a Maester rollout
-                  </a>
-                </div>
-              </Reveal>
-
-              <div className="grid gap-5 sm:grid-cols-2">
-                {maesterFeatures.map((feature, i) => (
-                  <Reveal key={feature.title} delay={i * 100}>
-                    <div className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur">
-                      <h3 className="mb-2 text-sm font-bold text-white">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm leading-6 text-slate-400">
-                        {feature.detail}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
+            <p className="mb-3 font-mono text-sm text-violet-400">$ blog</p>
+            <h2 className="mb-4 max-w-2xl text-3xl font-bold text-white md:text-4xl">
+              Technical notes &amp; guides.
+            </h2>
+            <p className="mb-12 max-w-2xl text-slate-400">
+              Practical articles from real Microsoft 365, Azure, and SharePoint work.
+            </p>
+            <div className="grid gap-6 md:grid-cols-2">
+              {blogPosts.map((post, i) => (
+                <Reveal key={post.title} delay={(i % 2) * 100}>
+                  <article className="h-full rounded-lg border border-slate-800 bg-slate-900/80 p-6 backdrop-blur transition hover:border-violet-500/60">
+                    <span className="mb-3 inline-block rounded border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-xs text-violet-400">
+                      {post.category}
+                    </span>
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm leading-6 text-slate-400">
+                      {post.detail}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
             </div>
+            <p className="mt-10 text-center font-mono text-sm text-slate-500">
+              Full posts coming soon — reach out if you want a specific topic covered.
+            </p>
           </div>
         </section>
 
@@ -643,59 +445,50 @@ export default function Home() {
               <div>
                 <p className="mb-3 font-mono text-sm text-violet-400">$ about</p>
                 <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-                  A Complete Engineering Partner for Your IT Stack.
+                  Hands-on engineering for your Microsoft stack.
                 </h2>
                 <p className="mb-5 leading-8 text-slate-400">
-                  CloudCap Technologies delivers senior-level IT
-                  infrastructure management, cybersecurity, and system
-                  engineering. Whether you need to secure your network
-                  perimeter, protect company email from spoofing, or migrate
-                  legacy servers to the cloud, everything is executed with
-                  direct technical ownership.
+                  CloudCap Technologies delivers senior-level Microsoft 365,
+                  Azure, SharePoint, and cybersecurity work. Projects are
+                  executed with direct technical ownership — not handed off
+                  through multiple layers of account management.
                 </p>
                 <p className="leading-8 text-slate-400">
-                  We eliminate the gap between networking, endpoint security,
-                  and cloud administration — giving you a cohesive, hardened,
-                  and reliable environment without tier-1 ticket queues.
+                  Whether you need a clean migration, a security baseline, or
+                  ongoing infrastructure support, the focus stays on practical
+                  outcomes and clear communication.
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={150}>
               <div className="rounded-xl border border-slate-800 bg-slate-900/80 p-8 backdrop-blur">
-                <p className="mb-1 font-mono text-xs text-violet-400">
-                  overview
-                </p>
+                <p className="mb-1 font-mono text-xs text-violet-400">overview</p>
                 <h3 className="mb-1 text-2xl font-bold text-white">
                   Core Competencies
                 </h3>
                 <p className="mb-6 text-slate-400">
-                  Full-Spectrum IT &amp; Cybersecurity Consultancy
+                  Microsoft 365 · Azure · Security · Automation
                 </p>
-
                 <ul className="space-y-3 text-sm text-slate-300">
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
-                    Firewalls, VPNs, VLANs &amp; network security architecture
+                    Microsoft 365 &amp; Exchange Online migrations
                   </li>
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
-                    Email security (DMARC, DKIM, SPF &amp; Anti-Phishing
-                    gateways)
+                    SharePoint governance and document management
                   </li>
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
-                    Microsoft 365, Entra ID, SharePoint &amp; Azure
-                    administration
+                    Azure infrastructure and hybrid networking
                   </li>
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
-                    Virtualization (Hyper-V / VMware) &amp; Cloud Migrations
+                    Conditional Access, MFA, and Zero Trust
                   </li>
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
-                    Continuous security testing with Maester &amp; PowerShell
-                    automation
+                    PowerShell automation and reporting
                   </li>
                 </ul>
               </div>
@@ -703,16 +496,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Technical Capabilities */}
+        {/* Capabilities */}
         <section id="capabilities" className="border-b border-slate-800/80 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <p className="mb-3 font-mono text-sm text-violet-400">
-              $ capabilities
-            </p>
+            <p className="mb-3 font-mono text-sm text-violet-400">$ capabilities</p>
             <h2 className="mb-10 text-3xl font-bold text-white md:text-4xl">
-              Technologies &amp; Systems Managed.
+              Technologies &amp; platforms.
             </h2>
-
             <div className="flex flex-wrap gap-2.5">
               {techStack.map((item) => (
                 <span
@@ -731,12 +521,11 @@ export default function Home() {
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="mb-3 font-mono text-sm text-violet-400">$ contact</p>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              Ready to secure or streamline your IT environment?
+              Ready to talk about a project?
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-slate-400">
-              Get in touch for network security audits, email authentication
-              projects, firewall upgrades, Maester deployments, cloud
-              migrations, or ongoing infrastructure management.
+              Migrations, security assessments, Azure work, SharePoint projects,
+              or ongoing Microsoft 365 support — start with a short conversation.
             </p>
             <a
               href="mailto:support@m365pro.io"
