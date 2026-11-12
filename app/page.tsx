@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   Check,
+  Puzzle,
   Cloud,
   Link2,
   Lock,
@@ -37,6 +38,8 @@ function Reveal({
     const node = ref.current;
     if (!node) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Opened at an anchor (e.g. /#tools): skip the effect so the target is never hidden mid-jump.
+    if (window.location.hash) return;
     if (node.getBoundingClientRect().top < window.innerHeight) return;
 
     setState("hidden");
@@ -250,6 +253,8 @@ export default function Home() {
     {
       name: "goqk.link",
       href: "https://goqk.link",
+      openLabel: "Open goqk.link",
+      extra: { label: "Chrome extension", href: "https://chromewebstore.google.com/detail/goqklink-url-shortener/ijgfblbakkkigilpbcolbankelljgmei" },
       icon: Link2,
       tagline: "Free URL shortener",
       detail:
@@ -258,6 +263,8 @@ export default function Home() {
     {
       name: "Low Views",
       href: "https://yt.m365pro.io",
+      openLabel: "Open Low Views",
+      extra: null as { label: string; href: string } | null,
       icon: PlayCircle,
       tagline: "YouTube discovery tool",
       detail:
@@ -519,22 +526,34 @@ export default function Home() {
               const Icon = tool.icon;
               return (
                 <Reveal key={tool.name} delay={i * 100} className="h-full">
-                  <a
-                    href={tool.href}
-                    target="_blank"
-                    rel="noopener"
-                    className={`${card} group flex h-full flex-col p-6`}
-                  >
-                    <div className="mb-5 flex items-center justify-between">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10">
-                        <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
-                      </span>
-                      <ArrowUpRight className="h-5 w-5 text-slate-600 transition group-hover:text-amber-400" />
-                    </div>
+                  <div className={`${card} flex h-full flex-col p-6`}>
+                    <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10">
+                      <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
+                    </span>
                     <h3 className="font-mono text-lg font-bold text-white">{tool.name}</h3>
                     <p className="mb-3 font-mono text-xs text-amber-500/80">{tool.tagline}</p>
-                    <p className="text-sm leading-6 text-slate-400">{tool.detail}</p>
-                  </a>
+                    <p className="mb-6 text-sm leading-6 text-slate-400">{tool.detail}</p>
+                    <div className="mt-auto flex flex-wrap gap-3">
+                      <a
+                        href={tool.href}
+                        target="_blank"
+                        rel="noopener"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 px-4 py-2 font-mono text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+                      >
+                        {tool.openLabel} <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                      {tool.extra && (
+                        <a
+                          href={tool.extra.href}
+                          target="_blank"
+                          rel="noopener"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 px-4 py-2 font-mono text-sm text-slate-200 transition hover:border-amber-500 hover:text-amber-400"
+                        >
+                          <Puzzle className="h-4 w-4" strokeWidth={1.75} /> {tool.extra.label}
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </Reveal>
               );
             })}
