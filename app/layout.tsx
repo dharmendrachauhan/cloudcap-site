@@ -16,11 +16,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://m365pro.io",
     siteName: "CloudCap Technologies",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "CloudCap Technologies — Microsoft 365, Azure & Cybersecurity Consulting" }],
     title: "CloudCap Technologies | Microsoft 365, Azure & Cybersecurity Consulting",
     description,
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og.png"],
     title: "CloudCap Technologies | Microsoft 365, Azure & Cybersecurity Consulting",
     description,
   },
