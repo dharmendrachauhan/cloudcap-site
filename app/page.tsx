@@ -7,6 +7,7 @@ import {
   KeyRound,
   ChevronDown,
   Puzzle,
+  ScanSearch,
   Cloud,
   Link2,
   Lock,
@@ -394,6 +395,16 @@ export default function Home() {
         "Grade your domain's email security with fixes and a PDF report, or look up any DNS record (MX, SPF, DMARC, PTR…).",
     },
     {
+      name: "Email Header Analyzer",
+      href: "https://check.m365pro.io/headers",
+      openLabel: "Analyze headers",
+      extra: null as { label: string; href: string } | null,
+      icon: ScanSearch,
+      tagline: "Is this email genuine?",
+      detail:
+        "Paste an email's headers to see SPF, DKIM and DMARC results, spam verdicts and phishing warnings in plain English.",
+    },
+    {
       name: "Secret Share",
       href: "https://share.m365pro.io",
       openLabel: "Share a secret",
@@ -673,7 +684,7 @@ export default function Home() {
             title="Free tools we built."
             intro="Small, useful utilities from the CloudCap team — free to use."
           />
-          <div className="-mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map((tool, i) => {
               const Icon = tool.icon;
               return (
