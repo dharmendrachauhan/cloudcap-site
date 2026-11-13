@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
+  --background: #0a1220;
   --foreground: #f1f5f9;
 }
 
@@ -10,6 +10,16 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Azure Navy theme: brand blue + navy-tinted neutrals */
+  --color-brand-300: #93b8ff;
+  --color-brand-400: #6fa3ff;
+  --color-brand-500: #4c8dff;
+  --color-brand-600: #2f6fe6;
+  --color-slate-950: #0a1220;
+  --color-slate-900: #101b30;
+  --color-slate-800: #1f2c44;
+  --color-slate-700: #2d3d5a;
 }
 
 html {
@@ -30,7 +40,7 @@ section[id] {
 }
 
 ::selection {
-  background: rgb(245 158 11 / 0.35);
+  background: rgb(76 141 255 / 0.35);
   color: #fff;
 }
 

@@ -103,11 +103,11 @@ function TerminalPanel() {
 
   return (
     <div className="relative">
-      <div className="absolute -inset-px rounded-xl bg-gradient-to-br from-amber-500/30 via-transparent to-transparent" />
+      <div className="absolute -inset-px rounded-xl bg-gradient-to-br from-brand-500/30 via-transparent to-transparent" />
       <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/95 shadow-2xl shadow-black/40">
         <div className="flex items-center gap-2 border-b border-slate-800 px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-500/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-brand-500/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" />
           <span className="ml-3 font-mono text-xs text-slate-500">admin@cloudcap: ~</span>
         </div>
@@ -118,15 +118,15 @@ function TerminalPanel() {
           {TERMINAL_LINES.slice(0, lineIndex).map((l) => (
             <div key={l.cmd}>
               <p className="break-words text-slate-300">
-                <span className="text-amber-500">PS&gt;</span> {l.cmd}
+                <span className="text-brand-500">PS&gt;</span> {l.cmd}
               </p>
               <p className="whitespace-pre-line pl-4 text-emerald-400">{l.out}</p>
             </div>
           ))}
           <p className="break-words text-slate-300">
-            <span className="text-amber-500">PS&gt;</span>{" "}
+            <span className="text-brand-500">PS&gt;</span>{" "}
             {lineIndex < TERMINAL_LINES.length && TERMINAL_LINES[lineIndex].cmd.slice(0, charIndex)}
-            <span className="animate-pulse text-amber-400">▍</span>
+            <span className="animate-pulse text-brand-400">▍</span>
           </p>
         </div>
       </div>
@@ -166,13 +166,13 @@ function DesktopNav({ nav }: { nav: NavEntry[] }) {
   };
 
   return (
-    <nav ref={navRef} className="hidden items-center gap-6 font-mono text-sm text-slate-400 lg:flex" aria-label="Main">
+    <nav ref={navRef} className="hidden items-center gap-6 text-sm text-slate-400 lg:flex" aria-label="Main">
       {nav.map((n, i) =>
         n.items ? (
           <div key={n.href} className="relative" onMouseEnter={() => enter(i)} onMouseLeave={leave}>
             <button
               type="button"
-              className={`flex items-center gap-1 transition hover:text-amber-400 ${open === i ? "text-amber-400" : ""}`}
+              className={`flex items-center gap-1 transition hover:text-brand-400 ${open === i ? "text-brand-400" : ""}`}
               aria-expanded={open === i}
               aria-haspopup="true"
               onClick={() => setOpen(open === i ? null : i)}
@@ -186,9 +186,9 @@ function DesktopNav({ nav }: { nav: NavEntry[] }) {
                   <a
                     href={n.href}
                     onClick={() => setOpen(null)}
-                    className="block rounded-lg px-3 py-2 text-xs text-amber-500/80 hover:bg-slate-900 hover:text-amber-400"
+                    className="block rounded-lg px-3 py-2 text-xs text-brand-500/80 hover:bg-slate-900 hover:text-brand-400"
                   >
-                    all {n.label} →
+                    All {n.label.toLowerCase()} →
                   </a>
                   {n.items.map((it) => (
                     <a
@@ -196,7 +196,7 @@ function DesktopNav({ nav }: { nav: NavEntry[] }) {
                       href={it.href}
                       onClick={() => setOpen(null)}
                       {...(it.external ? { target: "_blank", rel: "noopener" } : {})}
-                      className="flex items-start justify-between gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-amber-400"
+                      className="flex items-start justify-between gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-brand-400"
                     >
                       <span className="min-w-0">
                         <span className="block text-sm leading-5">{it.label}</span>
@@ -210,7 +210,7 @@ function DesktopNav({ nav }: { nav: NavEntry[] }) {
             )}
           </div>
         ) : (
-          <a key={n.href} href={n.href} className="transition hover:text-amber-400">
+          <a key={n.href} href={n.href} className="transition hover:text-brand-400">
             {n.label}
           </a>
         ),
@@ -226,7 +226,7 @@ function MobileNav({ nav, onNavigate }: { nav: NavEntry[]; onNavigate: () => voi
       {nav.map((n) => (
         <div key={n.href} className="border-b border-slate-800/70">
           <div className="flex items-center justify-between">
-            <a href={n.href} onClick={onNavigate} className="block flex-1 py-3 font-mono text-slate-300 hover:text-amber-400">
+            <a href={n.href} onClick={onNavigate} className="block flex-1 py-3 text-slate-300 hover:text-brand-400">
               {n.label}
             </a>
             {n.items && (
@@ -249,7 +249,7 @@ function MobileNav({ nav, onNavigate }: { nav: NavEntry[]; onNavigate: () => voi
                   href={it.href}
                   onClick={onNavigate}
                   {...(it.external ? { target: "_blank", rel: "noopener" } : {})}
-                  className="flex items-center gap-1 py-2 text-sm text-slate-400 hover:text-amber-400"
+                  className="flex items-center gap-1 py-2 text-sm text-slate-400 hover:text-brand-400"
                 >
                   {it.label}
                   {it.external && <ArrowUpRight className="h-3 w-3" />}
@@ -266,8 +266,8 @@ function MobileNav({ nav, onNavigate }: { nav: NavEntry[]; onNavigate: () => voi
 function SectionHeading({ tag, title, intro }: { tag: string; title: string; intro?: string }) {
   return (
     <div className="mb-12 max-w-2xl">
-      <p className="mb-3 font-mono text-sm text-amber-500">$ {tag}</p>
-      <h2 className="font-mono text-3xl font-bold tracking-tight text-white md:text-4xl">{title}</h2>
+      <p className="mb-3 font-mono text-sm text-brand-500">$ {tag}</p>
+      <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">{title}</h2>
       {intro && <p className="mt-4 leading-7 text-slate-400">{intro}</p>}
     </div>
   );
@@ -428,30 +428,30 @@ export default function Home() {
 
   const NAV: NavEntry[] = [
     {
-      label: "services",
+      label: "Services",
       href: "#services",
       items: coreServices.map((x) => ({ label: x.title, href: `#svc-${slug(x.title)}`, note: x.category })),
     },
     {
-      label: "portfolio",
+      label: "Portfolio",
       href: "#portfolio",
       items: portfolioProjects.map((x) => ({ label: x.title, href: `#proj-${slug(x.title)}` })),
     },
-    { label: "about", href: "#about" },
-    { label: "capabilities", href: "#capabilities" },
+    { label: "About", href: "#about" },
+    { label: "Capabilities", href: "#capabilities" },
     {
-      label: "tools",
+      label: "Tools",
       href: "#tools",
       items: tools.flatMap((t) => [
         { label: t.name, href: t.href, external: true, note: t.tagline },
         ...(t.extra ? [{ label: `${t.name} ${t.extra.label}`, href: t.extra.href, external: true }] : []),
       ]),
     },
-    { label: "contact", href: "#contact" },
+    { label: "Contact", href: "#contact" },
   ];
 
   const card =
-    "rounded-xl border border-slate-800 bg-slate-900/70 transition duration-300 hover:-translate-y-0.5 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/5";
+    "rounded-xl border border-slate-800 bg-slate-900/70 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/50 hover:shadow-xl hover:shadow-brand-500/5";
 
   return (
     <main className="relative min-h-screen overflow-x-clip bg-slate-950 font-sans text-slate-100">
@@ -459,15 +459,15 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/40 bg-amber-500/10 font-mono text-sm font-bold text-amber-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-500/40 bg-brand-500/10 font-mono text-sm font-bold text-brand-400">
               cc
             </div>
             <span>
-              <span className="block font-mono text-base font-bold leading-tight text-white sm:text-lg">
+              <span className="block text-base font-bold leading-tight text-white sm:text-lg">
                 CloudCap Technologies
               </span>
-              <span className="block font-mono text-xs text-amber-500/70">
-                it infrastructure &amp; cybersecurity
+              <span className="block font-mono text-xs text-brand-500/70">
+                Microsoft 365 · Azure · Security
               </span>
             </span>
           </a>
@@ -476,7 +476,7 @@ export default function Home() {
 
           <a
             href={`mailto:${EMAIL}`}
-            className="hidden items-center gap-2 rounded-lg border border-amber-500/50 px-4 py-2 font-mono text-sm text-amber-400 transition hover:bg-amber-500 hover:text-slate-950 lg:inline-flex"
+            className="hidden items-center gap-2 rounded-lg border border-brand-500/50 px-4 py-2 text-sm text-brand-400 transition hover:bg-brand-500 hover:text-white lg:inline-flex"
           >
             <Mail className="h-4 w-4" strokeWidth={1.75} />
             {EMAIL}
@@ -498,7 +498,7 @@ export default function Home() {
             <MobileNav nav={NAV} onNavigate={() => setMenuOpen(false)} />
             <a
               href={`mailto:${EMAIL}`}
-              className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-4 py-3 font-mono font-semibold text-slate-950"
+              className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-3 font-semibold text-white"
             >
               <Mail className="h-4 w-4" /> {EMAIL}
             </a>
@@ -514,17 +514,17 @@ export default function Home() {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-amber-500/10 blur-3xl"
+          className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-3xl"
         />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-amber-400">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-brand-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
               infrastructure state: healthy
             </p>
-            <h1 className="mb-6 font-mono text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-[2.9rem]">
+            <h1 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-[2.9rem]">
               Microsoft 365, Azure &amp;{" "}
-              <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">
                 Cybersecurity
               </span>{" "}
               Consulting.
@@ -536,13 +536,13 @@ export default function Home() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-3 font-mono font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3 font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-400"
               >
                 Consult an Engineer <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex justify-center rounded-lg border border-slate-700 px-6 py-3 font-mono font-semibold text-slate-200 transition hover:border-amber-500 hover:text-amber-400"
+                className="inline-flex justify-center rounded-lg border border-slate-700 px-6 py-3 font-semibold text-slate-200 transition hover:border-brand-500 hover:text-brand-400"
               >
                 Explore Services
               </a>
@@ -570,14 +570,14 @@ export default function Home() {
               const Icon = service.icon;
               return (
                 <Reveal key={service.title} delay={(i % 3) * 100} className="h-full">
-                  <div id={`svc-${slug(service.title)}`} className={`${card} flex h-full scroll-mt-32 flex-col p-6 target:border-amber-500 target:shadow-xl target:shadow-amber-500/10`}>
+                  <div id={`svc-${slug(service.title)}`} className={`${card} flex h-full scroll-mt-32 flex-col p-6 target:border-brand-500 target:shadow-xl target:shadow-brand-500/10`}>
                     <div className="mb-5 flex items-center justify-between">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10">
-                        <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
+                      <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/10">
+                        <Icon className="h-5 w-5 text-brand-400" strokeWidth={1.5} />
                       </span>
                       <span className="font-mono text-xs text-slate-500">{service.category}</span>
                     </div>
-                    <h3 className="mb-2 font-mono text-lg font-bold text-white">{service.title}</h3>
+                    <h3 className="mb-2 text-lg font-bold text-white">{service.title}</h3>
                     <p className="text-sm leading-6 text-slate-400">{service.detail}</p>
                   </div>
                 </Reveal>
@@ -598,11 +598,11 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {portfolioProjects.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 100} className="h-full">
-                <div id={`proj-${slug(project.title)}`} className={`${card} h-full scroll-mt-32 p-6 target:border-amber-500 target:shadow-xl target:shadow-amber-500/10`}>
-                  <p className="mb-3 font-mono text-xs text-amber-500/80">
+                <div id={`proj-${slug(project.title)}`} className={`${card} h-full scroll-mt-32 p-6 target:border-brand-500 target:shadow-xl target:shadow-brand-500/10`}>
+                  <p className="mb-3 font-mono text-xs text-brand-500/80">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mb-2 font-mono text-lg font-bold text-white">{project.title}</h3>
+                  <h3 className="mb-2 text-lg font-bold text-white">{project.title}</h3>
                   <p className="mb-5 text-sm leading-6 text-slate-400">{project.detail}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
@@ -625,8 +625,8 @@ export default function Home() {
       <section id="about" className="border-b border-slate-800/80 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="mb-3 font-mono text-sm text-amber-500">$ about</p>
-            <h2 className="mb-6 font-mono text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <p className="mb-3 font-mono text-sm text-brand-500">$ about</p>
+            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl">
               Hands-on engineering for your Microsoft stack.
             </h2>
             <p className="mb-5 leading-8 text-slate-400">
@@ -641,8 +641,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={150}>
             <div className="rounded-xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-900/40 p-8">
-              <p className="mb-1 font-mono text-xs text-amber-500">overview</p>
-              <h3 className="mb-1 font-mono text-2xl font-bold text-white">Core Competencies</h3>
+              <p className="mb-1 font-mono text-xs text-brand-500">overview</p>
+              <h3 className="mb-1 text-2xl font-bold text-white">Core Competencies</h3>
               <p className="mb-6 text-slate-400">Microsoft 365 · Azure · Security · Automation</p>
               <ul className="space-y-3.5 text-sm text-slate-300">
                 {competencies.map((c) => (
@@ -667,7 +667,7 @@ export default function Home() {
             {techStack.map((item) => (
               <span
                 key={item}
-                className="rounded-lg border border-slate-800 bg-slate-900/80 px-3.5 py-2 font-mono text-sm text-slate-300 transition hover:border-amber-500/50 hover:text-amber-300"
+                className="rounded-lg border border-slate-800 bg-slate-900/80 px-3.5 py-2 text-sm text-slate-300 transition hover:border-brand-500/50 hover:text-brand-300"
               >
                 {item}
               </span>
@@ -689,13 +689,13 @@ export default function Home() {
               const Icon = tool.icon;
               return (
                 <Reveal key={tool.name} delay={i * 100} className="h-full">
-                  <div className="flex h-full items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 p-4 transition hover:border-amber-500/50">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-amber-500/30 bg-amber-500/10">
-                      <Icon className="h-4 w-4 text-amber-400" strokeWidth={1.75} />
+                  <div className="flex h-full items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 p-4 transition hover:border-brand-500/50">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-brand-500/30 bg-brand-500/10">
+                      <Icon className="h-4 w-4 text-brand-400" strokeWidth={1.75} />
                     </span>
                     <div className="min-w-0">
-                      <h3 className="font-mono text-sm font-bold text-white">
-                        {tool.name} <span className="font-normal text-amber-500/80">· {tool.tagline}</span>
+                      <h3 className="text-sm font-bold text-white">
+                        {tool.name} <span className="font-normal text-brand-500/80">· {tool.tagline}</span>
                       </h3>
                       <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-400">{tool.detail}</p>
                       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs">
@@ -703,7 +703,7 @@ export default function Home() {
                           href={tool.href}
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300"
+                          className="inline-flex items-center gap-1 text-brand-400 hover:text-brand-300"
                         >
                           {tool.openLabel} <ArrowUpRight className="h-3 w-3" />
                         </a>
@@ -712,7 +712,7 @@ export default function Home() {
                             href={tool.extra.href}
                             target="_blank"
                             rel="noopener"
-                            className="inline-flex items-center gap-1 text-slate-300 hover:text-amber-400"
+                            className="inline-flex items-center gap-1 text-slate-300 hover:text-brand-400"
                           >
                             <Puzzle className="h-3 w-3" strokeWidth={2} /> {tool.extra.label}
                           </a>
@@ -733,11 +733,11 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-16 text-center">
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-32 left-1/2 h-72 w-[700px] -translate-x-1/2 rounded-full bg-amber-500/10 blur-3xl"
+              className="pointer-events-none absolute -bottom-32 left-1/2 h-72 w-[700px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-3xl"
             />
             <div className="relative mx-auto max-w-2xl">
-              <p className="mb-3 font-mono text-sm text-amber-500">$ contact</p>
-              <h2 className="mb-6 font-mono text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <p className="mb-3 font-mono text-sm text-brand-500">$ contact</p>
+              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 Ready to talk about a project?
               </h2>
               <p className="mx-auto mb-8 max-w-xl text-slate-400">
@@ -746,7 +746,7 @@ export default function Home() {
               </p>
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-8 py-3.5 font-mono font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-8 py-3.5 font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-400"
               >
                 <Mail className="h-4 w-4" /> {EMAIL}
               </a>
@@ -756,25 +756,25 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-slate-800">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 font-mono text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="mb-1 text-sm font-bold text-slate-300">CloudCap Technologies</p>
             <p>© {new Date().getFullYear()} CloudCap Technologies. All rights reserved.</p>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="https://goqk.link" target="_blank" rel="noopener" className="hover:text-amber-400">
+            <a href="https://goqk.link" target="_blank" rel="noopener" className="hover:text-brand-400">
               goqk.link
             </a>
-            <a href="https://yt.m365pro.io" target="_blank" rel="noopener" className="hover:text-amber-400">
+            <a href="https://yt.m365pro.io" target="_blank" rel="noopener" className="hover:text-brand-400">
               Low Views
             </a>
-            <a href="/terms" className="hover:text-amber-400">
+            <a href="/terms" className="hover:text-brand-400">
               terms
             </a>
-            <a href="/privacy" className="hover:text-amber-400">
+            <a href="/privacy" className="hover:text-brand-400">
               privacy
             </a>
-            <a href={`mailto:${EMAIL}`} className="hover:text-amber-400">
+            <a href={`mailto:${EMAIL}`} className="hover:text-brand-400">
               {EMAIL}
             </a>
           </div>

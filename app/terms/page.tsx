@@ -15,7 +15,7 @@ export default function Terms() {
           </a>
           <a
             href="/"
-            className="font-mono text-sm text-slate-400 hover:text-violet-400"
+            className="font-mono text-sm text-slate-400 hover:text-brand-400"
           >
             ← back to home
           </a>
@@ -23,7 +23,7 @@ export default function Terms() {
       </header>
 
       <div className="mx-auto max-w-4xl px-6 py-16">
-        <p className="mb-3 font-mono text-sm text-violet-400">$ terms</p>
+        <p className="mb-3 font-mono text-sm text-brand-400">$ terms</p>
         <h1 className="mb-2 text-3xl font-bold text-white md:text-4xl">
           Terms &amp; Conditions
         </h1>
@@ -147,7 +147,7 @@ export default function Terms() {
               For questions about these Terms, contact us at{" "}
               <a
                 href="mailto:support@m365pro.io"
-                className="text-violet-400 hover:underline"
+                className="text-brand-400 hover:underline"
               >
                 support@m365pro.io
               </a>
@@ -159,10 +159,10 @@ export default function Terms() {
 
       <footer className="border-t border-slate-800 px-6 py-8 text-center font-mono text-xs text-slate-600">
         <div className="mb-2 flex justify-center gap-6">
-          <a href="/terms" className="hover:text-violet-400">
+          <a href="/terms" className="hover:text-brand-400">
             terms
           </a>
-          <a href="/privacy" className="hover:text-violet-400">
+          <a href="/privacy" className="hover:text-brand-400">
             privacy
           </a>
         </div>
