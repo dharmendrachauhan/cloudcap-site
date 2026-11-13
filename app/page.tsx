@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   Check,
+  KeyRound,
   ChevronDown,
   Puzzle,
   Cloud,
@@ -382,6 +383,16 @@ export default function Home() {
         "Short, safe links with click counts and custom codes, checked against Google Safe Browsing.",
     },
     {
+      name: "Secret Share",
+      href: "https://share.m365pro.io",
+      openLabel: "Share a secret",
+      extra: null as { label: string; href: string } | null,
+      icon: KeyRound,
+      tagline: "One-time encrypted links",
+      detail:
+        "Send passwords and keys with a link that self-destructs after it's read. Encrypted in your browser.",
+    },
+    {
       name: "Low Views",
       href: "https://yt.m365pro.io",
       openLabel: "Open Low Views",
@@ -651,7 +662,7 @@ export default function Home() {
             title="Free tools we built."
             intro="Small, useful utilities from the CloudCap team — free to use."
           />
-          <div className="-mt-4 grid max-w-4xl gap-4 sm:grid-cols-2">
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map((tool, i) => {
               const Icon = tool.icon;
               return (
