@@ -384,14 +384,14 @@ export default function Home() {
         "Short, safe links with click counts and custom codes, checked against Google Safe Browsing.",
     },
     {
-      name: "Email Security Checker",
+      name: "Email Security & DNS Checker",
       href: "https://check.m365pro.io",
       openLabel: "Check your domain",
       extra: null as { label: string; href: string } | null,
       icon: MailCheck,
-      tagline: "SPF, DKIM & DMARC score",
+      tagline: "Score + any DNS lookup",
       detail:
-        "Grade your domain's email security in seconds, with plain-English fixes and a PDF report.",
+        "Grade your domain's email security with fixes and a PDF report, or look up any DNS record (MX, SPF, DMARC, PTR…).",
     },
     {
       name: "Secret Share",
