@@ -258,7 +258,7 @@ export default function Home() {
       icon: Link2,
       tagline: "Free URL shortener",
       detail:
-        "Short, safe links with click counts and custom codes. Every destination is checked against Google Safe Browsing.",
+        "Short, safe links with click counts and custom codes, checked against Google Safe Browsing.",
     },
     {
       name: "Low Views",
@@ -268,7 +268,7 @@ export default function Home() {
       icon: PlayCircle,
       tagline: "YouTube discovery tool",
       detail:
-        "Find YouTube videos with low view counts — a simple way to discover content the algorithm doesn't show you.",
+        "Find YouTube videos with low view counts — content the algorithm doesn't show you.",
     },
   ];
 
@@ -514,44 +514,47 @@ export default function Home() {
       </section>
 
       {/* Free tools */}
-      <section id="tools" className="border-b border-slate-800/80 py-24">
+      <section id="tools" className="border-b border-slate-800/80 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             tag="tools"
             title="Free tools we built."
             intro="Small, useful utilities from the CloudCap team — free to use."
           />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="-mt-4 grid max-w-4xl gap-4 sm:grid-cols-2">
             {tools.map((tool, i) => {
               const Icon = tool.icon;
               return (
                 <Reveal key={tool.name} delay={i * 100} className="h-full">
-                  <div className={`${card} flex h-full flex-col p-6`}>
-                    <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10">
-                      <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
+                  <div className="flex h-full items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 p-4 transition hover:border-amber-500/50">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-amber-500/30 bg-amber-500/10">
+                      <Icon className="h-4 w-4 text-amber-400" strokeWidth={1.75} />
                     </span>
-                    <h3 className="font-mono text-lg font-bold text-white">{tool.name}</h3>
-                    <p className="mb-3 font-mono text-xs text-amber-500/80">{tool.tagline}</p>
-                    <p className="mb-6 text-sm leading-6 text-slate-400">{tool.detail}</p>
-                    <div className="mt-auto flex flex-wrap gap-3">
-                      <a
-                        href={tool.href}
-                        target="_blank"
-                        rel="noopener"
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 px-4 py-2 font-mono text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
-                      >
-                        {tool.openLabel} <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                      {tool.extra && (
+                    <div className="min-w-0">
+                      <h3 className="font-mono text-sm font-bold text-white">
+                        {tool.name} <span className="font-normal text-amber-500/80">· {tool.tagline}</span>
+                      </h3>
+                      <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-400">{tool.detail}</p>
+                      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs">
                         <a
-                          href={tool.extra.href}
+                          href={tool.href}
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 px-4 py-2 font-mono text-sm text-slate-200 transition hover:border-amber-500 hover:text-amber-400"
+                          className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300"
                         >
-                          <Puzzle className="h-4 w-4" strokeWidth={1.75} /> {tool.extra.label}
+                          {tool.openLabel} <ArrowUpRight className="h-3 w-3" />
                         </a>
-                      )}
+                        {tool.extra && (
+                          <a
+                            href={tool.extra.href}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center gap-1 text-slate-300 hover:text-amber-400"
+                          >
+                            <Puzzle className="h-3 w-3" strokeWidth={2} /> {tool.extra.label}
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Reveal>
