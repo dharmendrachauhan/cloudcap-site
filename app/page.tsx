@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   Check,
+  ChevronDown,
   Puzzle,
   Cloud,
   Link2,
@@ -130,14 +131,134 @@ function TerminalPanel() {
   );
 }
 
-const NAV = [
-  { href: "#services", label: "services" },
-  { href: "#portfolio", label: "portfolio" },
-  { href: "#about", label: "about" },
-  { href: "#capabilities", label: "capabilities" },
-  { href: "#tools", label: "tools" },
-  { href: "#contact", label: "contact" },
-];
+type NavItem = { label: string; href: string; external?: boolean; note?: string };
+type NavEntry = { label: string; href: string; items?: NavItem[] };
+
+const slug = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+function DesktopNav({ nav }: { nav: NavEntry[] }) {
+  const [open, setOpen] = useState<number | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
+    const onClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpen(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
+  const enter = (i: number) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpen(i);
+  };
+  const leave = () => {
+    closeTimer.current = setTimeout(() => setOpen(null), 150);
+  };
+
+  return (
+    <nav ref={navRef} className="hidden items-center gap-6 font-mono text-sm text-slate-400 lg:flex" aria-label="Main">
+      {nav.map((n, i) =>
+        n.items ? (
+          <div key={n.href} className="relative" onMouseEnter={() => enter(i)} onMouseLeave={leave}>
+            <button
+              type="button"
+              className={`flex items-center gap-1 transition hover:text-amber-400 ${open === i ? "text-amber-400" : ""}`}
+              aria-expanded={open === i}
+              aria-haspopup="true"
+              onClick={() => setOpen(open === i ? null : i)}
+            >
+              {n.label}
+              <ChevronDown className={`h-3.5 w-3.5 transition ${open === i ? "rotate-180" : ""}`} />
+            </button>
+            {open === i && (
+              <div className="absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3">
+                <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-950/95 p-2 shadow-2xl shadow-black/50 backdrop-blur-md">
+                  <a
+                    href={n.href}
+                    onClick={() => setOpen(null)}
+                    className="block rounded-lg px-3 py-2 text-xs text-amber-500/80 hover:bg-slate-900 hover:text-amber-400"
+                  >
+                    all {n.label} →
+                  </a>
+                  {n.items.map((it) => (
+                    <a
+                      key={it.href}
+                      href={it.href}
+                      onClick={() => setOpen(null)}
+                      {...(it.external ? { target: "_blank", rel: "noopener" } : {})}
+                      className="flex items-start justify-between gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-amber-400"
+                    >
+                      <span className="min-w-0">
+                        <span className="block text-sm leading-5">{it.label}</span>
+                        {it.note && <span className="block text-xs text-slate-500">{it.note}</span>}
+                      </span>
+                      {it.external && <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <a key={n.href} href={n.href} className="transition hover:text-amber-400">
+            {n.label}
+          </a>
+        ),
+      )}
+    </nav>
+  );
+}
+
+function MobileNav({ nav, onNavigate }: { nav: NavEntry[]; onNavigate: () => void }) {
+  const [expanded, setExpanded] = useState<string | null>(null);
+  return (
+    <>
+      {nav.map((n) => (
+        <div key={n.href} className="border-b border-slate-800/70">
+          <div className="flex items-center justify-between">
+            <a href={n.href} onClick={onNavigate} className="block flex-1 py-3 font-mono text-slate-300 hover:text-amber-400">
+              {n.label}
+            </a>
+            {n.items && (
+              <button
+                type="button"
+                className="p-3 text-slate-400"
+                aria-label={`Show ${n.label}`}
+                aria-expanded={expanded === n.href}
+                onClick={() => setExpanded(expanded === n.href ? null : n.href)}
+              >
+                <ChevronDown className={`h-4 w-4 transition ${expanded === n.href ? "rotate-180" : ""}`} />
+              </button>
+            )}
+          </div>
+          {n.items && expanded === n.href && (
+            <div className="pb-3 pl-3">
+              {n.items.map((it) => (
+                <a
+                  key={it.href}
+                  href={it.href}
+                  onClick={onNavigate}
+                  {...(it.external ? { target: "_blank", rel: "noopener" } : {})}
+                  className="flex items-center gap-1 py-2 text-sm text-slate-400 hover:text-amber-400"
+                >
+                  {it.label}
+                  {it.external && <ArrowUpRight className="h-3 w-3" />}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </>
+  );
+}
 
 function SectionHeading({ tag, title, intro }: { tag: string; title: string; intro?: string }) {
   return (
@@ -272,11 +393,35 @@ export default function Home() {
     },
   ];
 
+  const NAV: NavEntry[] = [
+    {
+      label: "services",
+      href: "#services",
+      items: coreServices.map((x) => ({ label: x.title, href: `#svc-${slug(x.title)}`, note: x.category })),
+    },
+    {
+      label: "portfolio",
+      href: "#portfolio",
+      items: portfolioProjects.map((x) => ({ label: x.title, href: `#proj-${slug(x.title)}` })),
+    },
+    { label: "about", href: "#about" },
+    { label: "capabilities", href: "#capabilities" },
+    {
+      label: "tools",
+      href: "#tools",
+      items: tools.flatMap((t) => [
+        { label: t.name, href: t.href, external: true, note: t.tagline },
+        ...(t.extra ? [{ label: `${t.name} ${t.extra.label}`, href: t.extra.href, external: true }] : []),
+      ]),
+    },
+    { label: "contact", href: "#contact" },
+  ];
+
   const card =
     "rounded-xl border border-slate-800 bg-slate-900/70 transition duration-300 hover:-translate-y-0.5 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/5";
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-slate-950 font-sans text-slate-100">
+    <main className="relative min-h-screen overflow-x-clip bg-slate-950 font-sans text-slate-100">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -294,13 +439,7 @@ export default function Home() {
             </span>
           </a>
 
-          <nav className="hidden gap-7 font-mono text-sm text-slate-400 lg:flex" aria-label="Main">
-            {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="transition hover:text-amber-400">
-                {n.label}
-              </a>
-            ))}
-          </nav>
+          <DesktopNav nav={NAV} />
 
           <a
             href={`mailto:${EMAIL}`}
@@ -323,16 +462,7 @@ export default function Home() {
 
         {menuOpen && (
           <nav className="border-t border-slate-800 px-6 pb-6 pt-2 lg:hidden" aria-label="Mobile">
-            {NAV.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setMenuOpen(false)}
-                className="block border-b border-slate-800/70 py-3 font-mono text-slate-300 hover:text-amber-400"
-              >
-                {n.label}
-              </a>
-            ))}
+            <MobileNav nav={NAV} onNavigate={() => setMenuOpen(false)} />
             <a
               href={`mailto:${EMAIL}`}
               className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-4 py-3 font-mono font-semibold text-slate-950"
@@ -407,7 +537,7 @@ export default function Home() {
               const Icon = service.icon;
               return (
                 <Reveal key={service.title} delay={(i % 3) * 100} className="h-full">
-                  <div className={`${card} flex h-full flex-col p-6`}>
+                  <div id={`svc-${slug(service.title)}`} className={`${card} flex h-full scroll-mt-32 flex-col p-6 target:border-amber-500 target:shadow-xl target:shadow-amber-500/10`}>
                     <div className="mb-5 flex items-center justify-between">
                       <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10">
                         <Icon className="h-5 w-5 text-amber-400" strokeWidth={1.5} />
@@ -435,7 +565,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {portfolioProjects.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 100} className="h-full">
-                <div className={`${card} h-full p-6`}>
+                <div id={`proj-${slug(project.title)}`} className={`${card} h-full scroll-mt-32 p-6 target:border-amber-500 target:shadow-xl target:shadow-amber-500/10`}>
                   <p className="mb-3 font-mono text-xs text-amber-500/80">
                     {String(i + 1).padStart(2, "0")}
                   </p>
