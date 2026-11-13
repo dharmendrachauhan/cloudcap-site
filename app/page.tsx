@@ -11,6 +11,7 @@ import {
   Link2,
   Lock,
   Mail,
+  MailCheck,
   Menu,
   PlayCircle,
   ShieldCheck,
@@ -383,6 +384,16 @@ export default function Home() {
         "Short, safe links with click counts and custom codes, checked against Google Safe Browsing.",
     },
     {
+      name: "Email Security Checker",
+      href: "https://check.m365pro.io",
+      openLabel: "Check your domain",
+      extra: null as { label: string; href: string } | null,
+      icon: MailCheck,
+      tagline: "SPF, DKIM & DMARC score",
+      detail:
+        "Grade your domain's email security in seconds, with plain-English fixes and a PDF report.",
+    },
+    {
       name: "Secret Share",
       href: "https://share.m365pro.io",
       openLabel: "Share a secret",
@@ -662,7 +673,7 @@ export default function Home() {
             title="Free tools we built."
             intro="Small, useful utilities from the CloudCap team — free to use."
           />
-          <div className="-mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tools.map((tool, i) => {
               const Icon = tool.icon;
               return (
