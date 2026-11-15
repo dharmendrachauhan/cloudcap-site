@@ -9,6 +9,8 @@ import {
   Puzzle,
   ScanSearch,
   Building2,
+  Network,
+  MapPin,
   Cloud,
   Link2,
   Lock,
@@ -404,6 +406,26 @@ export default function Home() {
       tagline: "Is this email genuine?",
       detail:
         "Paste an email's headers to see SPF, DKIM and DMARC results, spam verdicts and phishing warnings in plain English.",
+    },
+    {
+      name: "DNS Map",
+      href: "https://check.m365pro.io/dns",
+      openLabel: "Map a domain",
+      extra: null as { label: string; href: string } | null,
+      icon: Network,
+      tagline: "Subdomains & hosting",
+      detail:
+        "Map a domain's name servers, mail servers and subdomains, who hosts each IP, a world map and checks for DNSSEC, CAA and dangling records.",
+    },
+    {
+      name: "IP Address Lookup",
+      href: "https://check.m365pro.io/ip",
+      openLabel: "Look up an IP",
+      extra: null as { label: string; href: string } | null,
+      icon: MapPin,
+      tagline: "Owner, network & reputation",
+      detail:
+        "Who owns an IP: ASN and provider, registered owner and abuse contact, country, reverse DNS and spam blocklists. Google or Microsoft sign-in.",
     },
     {
       name: "M365 Tenant Lookup",
