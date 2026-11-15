@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://m365pro.io"),
   title: "CloudCap Technologies | Microsoft 365 & Azure Consulting",
   description,
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "any" }, { url: "/icon.svg", type: "image/svg+xml" }],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     url: "https://m365pro.io",

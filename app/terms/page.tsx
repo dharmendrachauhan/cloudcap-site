@@ -5,9 +5,9 @@ export default function Terms() {
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
           <a href="/" className="flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="/cloudcap-mark.svg"
               alt="CloudCap Technologies"
-              className="h-9 w-9 rounded-lg border border-slate-700 bg-slate-900 object-contain p-1"
+              className="h-9 w-auto"
             />
             <span className="text-base font-bold text-white">
               CloudCap Technologies

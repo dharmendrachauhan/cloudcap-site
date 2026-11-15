@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="CloudCap Technologies"><title>CloudCap Technologies</title><defs>
+<linearGradient id="fcg" gradientUnits="userSpaceOnUse" x1="330" y1="430" x2="780" y2="300">
+  <stop offset="0" stop-color="#45CBF5"/><stop offset=".5" stop-color="#2D9CF0"/><stop offset="1" stop-color="#3B6BFF"/></linearGradient>
+<linearGradient id="fc2" gradientUnits="userSpaceOnUse" x1="640" y1="440" x2="840" y2="620">
+  <stop offset="0" stop-color="#2F9BFF"/><stop offset="1" stop-color="#2F5BFF"/></linearGradient>
+<mask id="fm1" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254">
+  <rect width="1254" height="1254" fill="#fff"/>
+  <path d="M768 444 H718 A84 84 0 0 0 718 612 H814" fill="none" stroke="#000" stroke-width="72" stroke-linecap="round"/></mask>
+<mask id="fm0" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254">
+  <rect width="1254" height="1254" fill="#fff"/>
+  <path d="M656 444 H538 A84 84 0 0 0 538 612 H656" fill="none" stroke="#000" stroke-width="72"/></mask></defs><rect width="1024" height="1024" rx="225.28" fill="#050A30"/><g transform="translate(-278.1 -47.9) scale(1.2931)">
+<path d="M456.3 603.8 A127 127 0 0 1 477.9 351.1 A141 141 0 0 1 749.5 349.1" fill="none" stroke="url(#fcg)" stroke-width="33" stroke-linecap="butt" mask="url(#fm0)"/>
+<path d="M656 444 H538 A84 84 0 0 0 538 612 H656" fill="none" stroke="#FFFFFF" stroke-width="46" mask="url(#fm1)"/>
+<path d="M768 444 H718 A84 84 0 0 0 718 612 H814" fill="none" stroke="url(#fc2)" stroke-width="46"/>
+<circle cx="814" cy="612" r="23.0" fill="url(#fc2)"/>
+<rect x="823.5" y="327.5" width="29" height="29" fill="#45CBF5"/><rect x="785.5" y="365.5" width="29" height="29" fill="#2F9BFF"/><rect x="861.5" y="367.5" width="29" height="29" fill="#7FA6FF"/><rect x="823.5" y="403.5" width="29" height="29" fill="#2F9BFF"/><rect x="783.5" y="443.5" width="29" height="29" fill="#2F9BFF"/><rect x="851.5" y="445.5" width="29" height="29" fill="#2F9BFF"/><rect x="815.5" y="482.5" width="29" height="29" fill="#7FA6FF"/></g></svg>
