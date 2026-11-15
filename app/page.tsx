@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Puzzle,
   ScanSearch,
+  Building2,
   Cloud,
   Link2,
   Lock,
@@ -403,6 +404,16 @@ export default function Home() {
       tagline: "Is this email genuine?",
       detail:
         "Paste an email's headers to see SPF, DKIM and DMARC results, spam verdicts and phishing warnings in plain English.",
+    },
+    {
+      name: "M365 Tenant Lookup",
+      href: "https://check.m365pro.io/tenant",
+      openLabel: "Look up a tenant",
+      extra: null as { label: string; href: string } | null,
+      icon: Building2,
+      tagline: "Tenant ID, region & sign-in",
+      detail:
+        "Find any domain's Microsoft 365 tenant ID, region, federation, Seamless SSO, onmicrosoft.com name and services. Work account sign-in.",
     },
     {
       name: "Secret Share",
