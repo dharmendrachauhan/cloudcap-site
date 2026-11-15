@@ -470,9 +470,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-500/40 bg-brand-500/10 font-mono text-sm font-bold text-brand-400">
-              cc
-            </div>
+            <img src="/cloudcap-mark.svg" alt="" className="h-10 w-auto" />
             <span>
               <span className="block text-base font-bold leading-tight text-white sm:text-lg">
                 CloudCap Technologies
