@@ -156,7 +156,7 @@ export default function Privacy() {
               <br />
               CloudCap Technologies
               <br />
-              Agra, Uttar Pradesh, India
+              Aligarh, Uttar Pradesh, India
               <br />
               Email:{" "}
               <a

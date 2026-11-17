@@ -13,7 +13,7 @@ export default function Refund() {
         <Section>
           <p className="leading-7">
             This policy explains how cancellations and refunds work for services bought from CloudCap Technologies
-            ("CloudCap," "we," "us"), operated by Dharmendra Chauhan from Agra, Uttar Pradesh, India. It applies to
+            ("CloudCap," "we," "us"), operated by Dharmendra Chauhan from Aligarh, Uttar Pradesh, India. It applies to
             payments made through this website, by payment link or invoice. Where a signed proposal or service
             agreement says something different, the agreement applies.
           </p>
@@ -89,7 +89,7 @@ export default function Refund() {
           <p className="leading-7">
             <span className="text-slate-300">CloudCap Technologies</span>
             <br />
-            Agra, Uttar Pradesh, India
+            Aligarh, Uttar Pradesh, India
             <br />
             Email: {mail}
           </p>

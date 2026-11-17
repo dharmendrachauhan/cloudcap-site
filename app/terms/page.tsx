@@ -140,7 +140,7 @@ export default function Terms() {
             <p className="leading-7">
               These Terms are governed by the laws of India. Any disputes
               arising in connection with this Site shall be subject to the
-              exclusive jurisdiction of the courts at Agra, Uttar Pradesh,
+              exclusive jurisdiction of the courts at Aligarh, Uttar Pradesh,
               India.
             </p>
           </section>
