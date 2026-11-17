@@ -7,7 +7,7 @@ type Plan = { name: string; usd: string; inr: string; unit: string; points: stri
 const PLANS: Plan[] = [
   {
     name: "Microsoft 365 Security Assessment",
-    usd: "US$299",
+    usd: "US$149",
     inr: "₹9,999",
     unit: "per tenant, fixed price",
     points: [
@@ -19,7 +19,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Email Security Setup",
-    usd: "US$149",
+    usd: "US$75",
     inr: "₹4,999",
     unit: "per domain, fixed price",
     points: [
@@ -31,7 +31,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Mailbox Migration",
-    usd: "US$15",
+    usd: "US$7.50",
     inr: "₹499",
     unit: "per mailbox (minimum 10)",
     points: [
@@ -43,7 +43,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Consulting & Remote Support",
-    usd: "US$40",
+    usd: "US$20",
     inr: "₹1,250",
     unit: "per hour",
     points: [
