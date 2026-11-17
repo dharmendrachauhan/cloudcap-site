@@ -13,7 +13,7 @@ const PLANS: Plan[] = [
   {
     name: "Microsoft 365 Security Assessment",
     usd: "US$299",
-    inr: "₹19,999",
+    inr: "₹9,999",
     unit: "per tenant, fixed price",
     points: [
       "Identity, MFA and Conditional Access review",
@@ -25,7 +25,7 @@ const PLANS: Plan[] = [
   {
     name: "Email Security Setup",
     usd: "US$149",
-    inr: "₹9,999",
+    inr: "₹4,999",
     unit: "per domain, fixed price",
     points: [
       "SPF, DKIM and DMARC configured correctly",
@@ -37,7 +37,7 @@ const PLANS: Plan[] = [
   {
     name: "Mailbox Migration",
     usd: "US$15",
-    inr: "₹999",
+    inr: "₹499",
     unit: "per mailbox (minimum 10)",
     points: [
       "Google Workspace, IMAP or tenant-to-tenant to Microsoft 365",
@@ -49,7 +49,7 @@ const PLANS: Plan[] = [
   {
     name: "Consulting & Remote Support",
     usd: "US$40",
-    inr: "₹2,500",
+    inr: "₹1,250",
     unit: "per hour",
     points: [
       "Microsoft 365, Entra ID, Intune and Azure",
