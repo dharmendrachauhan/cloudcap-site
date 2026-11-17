@@ -25,6 +25,15 @@ import {
 } from "lucide-react";
 
 const EMAIL = "support@m365pro.io";
+const LINKEDIN = "https://www.linkedin.com/company/cloudcap-technologies";
+
+function LinkedInIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
 
 // Fade-in on scroll. Content is visible in the server-rendered HTML (for search
 // engines, link previews and no-JS visitors); only elements that start below the
@@ -505,13 +514,25 @@ export default function Home() {
 
           <DesktopNav nav={NAV} />
 
-          <a
-            href={`mailto:${EMAIL}`}
-            className="hidden items-center gap-2 rounded-lg border border-brand-500/50 px-4 py-2 text-sm text-brand-400 transition hover:bg-brand-500 hover:text-white lg:inline-flex"
-          >
-            <Mail className="h-4 w-4" strokeWidth={1.75} />
-            {EMAIL}
-          </a>
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener"
+              aria-label="CloudCap Technologies on LinkedIn"
+              title="CloudCap Technologies on LinkedIn"
+              className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-lg border border-slate-800 text-slate-300 transition hover:border-brand-500/50 hover:text-brand-400"
+            >
+              <LinkedInIcon />
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-500/50 px-4 py-2 text-sm text-brand-400 transition hover:bg-brand-500 hover:text-white"
+            >
+              <Mail className="h-4 w-4" strokeWidth={1.75} />
+              {EMAIL}
+            </a>
+          </div>
 
           <button
             type="button"
@@ -532,6 +553,14 @@ export default function Home() {
               className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-3 font-semibold text-white"
             >
               <Mail className="h-4 w-4" /> {EMAIL}
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener"
+              className="mt-3 flex items-center justify-center gap-2 rounded-lg border border-slate-800 px-4 py-3 text-slate-300"
+            >
+              <LinkedInIcon /> Follow us on LinkedIn
             </a>
           </nav>
         )}
@@ -807,6 +836,14 @@ export default function Home() {
             </a>
             <a href={`mailto:${EMAIL}`} className="hover:text-brand-400">
               {EMAIL}
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-1.5 hover:text-brand-400"
+            >
+              <LinkedInIcon className="h-3.5 w-3.5" /> LinkedIn
             </a>
           </div>
         </div>
