@@ -38,7 +38,7 @@ export default function Privacy() {
             <p className="leading-7">
               This Privacy Policy explains how CloudCap Technologies
               ("CloudCap," "we," "us," or "our"), operated by Dharmendra
-              Chauhan, handles information in connection with this website
+              Singh, handles information in connection with this website
               (the "Site"). This Site has no forms or logins and does not
               knowingly collect personal information beyond what is described
               below. When you buy our services, payment details are handled by
@@ -152,7 +152,7 @@ export default function Privacy() {
               corrected or deleted, you can contact our Grievance Officer:
             </p>
             <p className="mt-3 leading-7">
-              <span className="text-slate-300">Dharmendra Chauhan</span>
+              <span className="text-slate-300">Dharmendra Singh</span>
               <br />
               CloudCap Technologies
               <br />

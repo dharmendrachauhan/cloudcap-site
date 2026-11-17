@@ -36,7 +36,7 @@ export default function Terms() {
         <div className="space-y-10 text-slate-400">
           <section>
             <p className="leading-7">
-              This website (the "Site") is operated by Dharmendra Chauhan
+              This website (the "Site") is operated by Dharmendra Singh
               under the name CloudCap Technologies ("CloudCap," "we," "us,"
               or "our"). This Site describes our IT infrastructure, Microsoft 365 and
               cybersecurity consulting services and how to buy them. By
