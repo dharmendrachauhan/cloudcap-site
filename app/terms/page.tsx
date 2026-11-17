@@ -1,3 +1,5 @@
+import { LegalFooter } from "../_components/LegalShell";
+
 export default function Terms() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
@@ -28,7 +30,7 @@ export default function Terms() {
           Terms &amp; Conditions
         </h1>
         <p className="mb-10 font-mono text-xs text-slate-500">
-          Last updated: July 27, 2026
+          Last updated: November 17, 2026
         </p>
 
         <div className="space-y-10 text-slate-400">
@@ -36,24 +38,35 @@ export default function Terms() {
             <p className="leading-7">
               This website (the "Site") is operated by Dharmendra Chauhan
               under the name CloudCap Technologies ("CloudCap," "we," "us,"
-              or "our"). This Site is provided for informational purposes
-              only, to describe our IT infrastructure and cybersecurity
-              consulting services. By accessing or using this Site, you agree
-              to these Terms &amp; Conditions.
+              or "our"). This Site describes our IT infrastructure, Microsoft 365 and
+              cybersecurity consulting services and how to buy them. By
+              accessing or using this Site, or by buying our services, you
+              agree to these Terms &amp; Conditions.
             </p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-bold text-white">
-              1. Informational Purpose
+              1. Services, Prices &amp; Payment
             </h2>
             <p className="leading-7">
-              This Site does not offer any products or services for sale, and
-              does not process payments, orders, or transactions of any kind.
-              Nothing on this Site constitutes a binding offer, quotation, or
-              contract. Any actual engagement for services is governed
-              separately by a mutually agreed proposal or service agreement
-              between CloudCap Technologies and the client.
+              Starting prices for our services are listed on our{" "}
+              <a href="/pricing" className="text-brand-400 hover:underline">
+                Pricing
+              </a>{" "}
+              page. Each engagement is confirmed by a written quote, proposal
+              or service agreement that sets out the scope, price and
+              timeline; that document applies to the engagement. Payments are
+              made by card or bank transfer. Card payments are processed by
+              Stripe, and we never receive or store full card numbers. Prices
+              for customers in India exclude GST at the applicable rate.
+            </p>
+            <p className="mt-3 leading-7">
+              Cancellations and refunds are covered by our{" "}
+              <a href="/refund" className="text-brand-400 hover:underline">
+                Refund &amp; Cancellation Policy
+              </a>
+              . All services are delivered remotely and digitally.
             </p>
           </section>
 
@@ -101,7 +114,11 @@ export default function Terms() {
               This Site and its content are provided on an "as is" basis. To
               the maximum extent permitted by law, CloudCap Technologies is
               not liable for any loss or damage arising from your use of, or
-              reliance on, this Site.
+              reliance on, this Site. For paid services, our total liability
+              for any claim is limited to the fees you paid for the service
+              concerned in the 12 months before the claim, and we are not
+              liable for indirect or consequential loss, such as lost profits
+              or lost data.
             </p>
           </section>
 
@@ -157,17 +174,7 @@ export default function Terms() {
         </div>
       </div>
 
-      <footer className="border-t border-slate-800 px-6 py-8 text-center font-mono text-xs text-slate-600">
-        <div className="mb-2 flex justify-center gap-6">
-          <a href="/terms" className="hover:text-brand-400">
-            terms
-          </a>
-          <a href="/privacy" className="hover:text-brand-400">
-            privacy
-          </a>
-        </div>
-        © 2026 CloudCap Technologies. All rights reserved.
-      </footer>
+      <LegalFooter />
     </main>
   );
 }

@@ -1,3 +1,5 @@
+import { LegalFooter } from "../_components/LegalShell";
+
 export default function Privacy() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
@@ -28,7 +30,7 @@ export default function Privacy() {
           Privacy Policy
         </h1>
         <p className="mb-10 font-mono text-xs text-slate-500">
-          Last updated: July 27, 2026
+          Last updated: November 17, 2026
         </p>
 
         <div className="space-y-10 text-slate-400">
@@ -37,10 +39,10 @@ export default function Privacy() {
               This Privacy Policy explains how CloudCap Technologies
               ("CloudCap," "we," "us," or "our"), operated by Dharmendra
               Chauhan, handles information in connection with this website
-              (the "Site"). This Site is informational only — it does not
-              have any forms, logins, e-commerce, or payment processing, and
-              does not knowingly collect personal information beyond what is
-              described below.
+              (the "Site"). This Site has no forms or logins and does not
+              knowingly collect personal information beyond what is described
+              below. When you buy our services, payment details are handled by
+              our payment processor, Stripe.
             </p>
           </section>
 
@@ -87,9 +89,13 @@ export default function Privacy() {
               3. Data Sharing
             </h2>
             <p className="leading-7">
-              We do not sell, rent, or share your information with third
-              parties, except where required by law or a valid legal request
-              from a government or judicial authority.
+              We do not sell or rent your information. We share it only with
+              service providers that help us run our business, such as Stripe,
+              which processes card payments and receives the billing details
+              you give it (we never see or store full card numbers), and where
+              required by law or a valid legal request from a government or
+              judicial authority. We keep invoices and payment records for as
+              long as tax and accounting law requires.
             </p>
           </section>
 
@@ -192,17 +198,7 @@ export default function Privacy() {
         </div>
       </div>
 
-      <footer className="border-t border-slate-800 px-6 py-8 text-center font-mono text-xs text-slate-600">
-        <div className="mb-2 flex justify-center gap-6">
-          <a href="/terms" className="hover:text-brand-400">
-            terms
-          </a>
-          <a href="/privacy" className="hover:text-brand-400">
-            privacy
-          </a>
-        </div>
-        © 2026 CloudCap Technologies. All rights reserved.
-      </footer>
+      <LegalFooter />
     </main>
   );
 }

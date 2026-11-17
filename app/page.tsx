@@ -489,6 +489,7 @@ export default function Home() {
         ...(t.extra ? [{ label: `${t.name} ${t.extra.label}`, href: t.extra.href, external: true }] : []),
       ]),
     },
+    { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -827,6 +828,12 @@ export default function Home() {
             </a>
             <a href="https://yt.m365pro.io" target="_blank" rel="noopener" className="hover:text-brand-400">
               Low Views
+            </a>
+            <a href="/pricing" className="hover:text-brand-400">
+              pricing
+            </a>
+            <a href="/refund" className="hover:text-brand-400">
+              refunds
             </a>
             <a href="/terms" className="hover:text-brand-400">
               terms
