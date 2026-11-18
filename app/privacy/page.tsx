@@ -42,7 +42,7 @@ export default function Privacy() {
               (the "Site"). This Site has no forms or logins and does not
               knowingly collect personal information beyond what is described
               below. When you buy our services, payment details are handled by
-              our payment processor, Stripe.
+              our payment provider, PayPal, or by your bank.
             </p>
           </section>
 
@@ -90,8 +90,8 @@ export default function Privacy() {
             </h2>
             <p className="leading-7">
               We do not sell or rent your information. We share it only with
-              service providers that help us run our business, such as Stripe,
-              which processes card payments and receives the billing details
+              service providers that help us run our business, such as PayPal,
+              which processes card and PayPal payments and receives the billing details
               you give it (we never see or store full card numbers), and where
               required by law or a valid legal request from a government or
               judicial authority. We keep invoices and payment records for as

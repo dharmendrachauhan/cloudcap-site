@@ -35,8 +35,9 @@ export default function Pricing() {
         </p>
         <p>
           <span className="text-slate-300">Payment:</span> fixed-price projects are 50% in advance and 50% on
-          completion; hourly work is billed monthly or prepaid. We accept cards and bank transfer. Card payments are
-          processed securely by Stripe; we never see or store your full card number.
+          completion; hourly work is billed monthly or prepaid. Customers in India can pay by UPI or bank transfer;
+          international customers can pay by PayPal (including cards) or international bank transfer. We never see or
+          store your full card number.
         </p>
         <p>
           <span className="text-slate-300">Refunds and cancellations:</span> see our{" "}

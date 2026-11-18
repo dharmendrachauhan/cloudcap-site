@@ -57,8 +57,9 @@ export default function Terms() {
               page. Each engagement is confirmed by a written quote, proposal
               or service agreement that sets out the scope, price and
               timeline; that document applies to the engagement. Payments are
-              made by card or bank transfer. Card payments are processed by
-              Stripe, and we never receive or store full card numbers. Prices
+              made by UPI or bank transfer (India), or by PayPal or
+              international bank transfer. Card payments are processed by
+              PayPal, and we never receive or store full card numbers. Prices
               for customers in India exclude GST at the applicable rate.
             </p>
             <p className="mt-3 leading-7">
